@@ -1,10 +1,10 @@
-const Branch= require("../models/branch.model.js");
+const LoanInstallment= require("../models/loan_installment.model.js");
 
-class BranchController {
+class LoanInstallmentController {
 
-    static async getAllBranches(req, res) {
+    static async getAllInstallments(req, res) {
 
-        Branch.getAllBranches((err, result) => {
+        LoanInstallment.getAllInstallments((err, result) => {
             if (err) {
                 return res.status(500)
                     .send({ error: "Something went wrong" })
@@ -14,11 +14,11 @@ class BranchController {
         })
     }
 
-    static async getDetailsByCode(req, res) {
+    static async getInstallmentByID(req, res) {
 
-        const branch_code = req.params.code
+        const customer_id = req.params.id
 
-        Branch.getDetailsByCode(branch_code, (err, result) => {
+        LoanInstallment.getInstallmentByID(customer_id, (err, result) => {
             if (err) {
                 return res.status(500)
                     .send({ error: "Something went wrong." })
@@ -33,18 +33,14 @@ class BranchController {
         })
     }
 
-    static async createNewBranch(req, res) {
+    static async createNewInstallment(req, res) {
 
-        const branch_code=req.body.branch_code;
-        const branch_name=req.body.branch_name;
-        const branch_city=req.body.branch_city;
-        const contact_number=req.body.contact_number;
-        const email = req.body.email;
+        const {installment_id,loan_number,amount,paid_date,due_date,status,customer_id}=req.body
 
 
-        const new_branch = new Branch(branch_code,branch_name,branch_city,contact_number,email)
+        const new_installment = new LoanInstallment(installment_id,loan_number,amount,paid_date,due_date,status,customer_id)
 
-        new_branch.createNewBranch((err, result) => {
+        new_installment.createNewInstallment((err, result) => {
 
             if (err) {
                 return res.status(500)
@@ -54,13 +50,12 @@ class BranchController {
             return res.send(result)
         })
     }
-    static async updateContactNo(req, res) {
+    static async updateStatus(req, res) {
 
-        const branch_code = req.params.code
-        const contact_number = req.body.contact_number
+        const {loan_number,customer_id}=req.body
 
 
-        Branch.updateContactNoByCode(branch_code,contact_number,(err, result) => {
+        LoanInstallment.updateStatus(loan_number,customer_id,(err, result) => {
 
             if (err) {
                 return res.status(500)
@@ -71,11 +66,11 @@ class BranchController {
         })
     }
 
-    static async deleteByCode(req, res) {
+    static async deleteByInstallmentID(req, res) {
 
-        const branch_code = req.params.code
+        const installment_id = req.params.id
 
-        Branch.deleteByCode(branch_code, (err, result) => {
+        LoanInstallment.deleteByInstallmentID(installment_id, (err, result) => {
             if (err) {
                 return res.status(500)
                     .send({ error: "Something went wrong." })
@@ -91,4 +86,4 @@ class BranchController {
     }
 
 }
-module.exports= BranchController;
+module.exports= LoanInstallmentController;

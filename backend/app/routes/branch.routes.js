@@ -10,4 +10,6 @@ router.route("/")
 router.route("/:code")
     .get(BranchController.getDetailsByCode)
     .delete(BranchController.deleteByCode)
+    .put(BranchController.updateContactNo)
+
 module.exports=router;

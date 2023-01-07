@@ -36,21 +36,14 @@ class Branch{
 
     }
 
-    updateContactNoByCode(response){
+    static updateContactNoByCode(branch_code,contactNo,response){
         pool.query(
-            "UPDATE branch set contact_number=?",
-            [this.contact_number],
+            "UPDATE branch set contact_number=? WHERE branch_code=?",
+            [contactNo,branch_code],
             response
         )
     }
 
-    updateEmailByCode(response){
-        pool.query(
-            "UPDATE branch set email=?",
-            [this.email],
-            response
-        )
-    }
 
     static deleteByCode(branch_code, response) {
         pool.query(
