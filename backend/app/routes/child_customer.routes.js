@@ -1,5 +1,5 @@
 const express = require("express");
-const ChildCustomerController = require("./controllers/child_customer.controller.js");
+const ChildCustomerController = require("../controllers/child_customer.controller.js");
 
 const router = express.Router();
 
