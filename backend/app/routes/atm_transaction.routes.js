@@ -1,5 +1,5 @@
 const express = require("express");
-const ATMTransactionController = require("./controllers/atm_transaction.controller.js");
+const ATMTransactionController = require("../controllers/atm_transaction.controller.js");
 
 const router = express.Router();
 
