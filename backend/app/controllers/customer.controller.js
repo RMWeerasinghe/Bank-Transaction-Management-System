@@ -4,7 +4,7 @@ class CustomerController {
 
     static async getAllCustomers(req, res) {
 
-        Branch.getAllCustomers((err, result) => {
+        Customer.getAllCustomers((err, result) => {
             if (err) {
                 return res.status(500)
                     .send({ error: "Something went wrong" })
