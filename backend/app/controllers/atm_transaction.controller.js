@@ -1,4 +1,4 @@
-const ATMTransaction = require("./models/atm_transaction.model.js");
+const ATMTransaction = require("../models/atm_transaction.model.js");
 
 class ATMTransactionController {
   static async getAllTransactions(req, res) {
