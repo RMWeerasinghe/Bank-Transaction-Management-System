@@ -49,7 +49,23 @@ class EmployeeController {
             return res.send(result)
         })
     }
+    static async updateContactNo(req, res) {
 
+        const employee_id = req.params.code
+        const contact_number = req.body.contact_number
+
+
+        Employee.updateContactNoByCode(employee_id,contact_number,(err, result) => {
+
+            if (err) {
+                return res.status(500)
+                    .send({ error: "Something went wrong." })
+            }
+
+            return res.send(result)
+        })
+    }
+    
     static async deleteByCode(req, res) {
 
         const employee_id = req.params.code

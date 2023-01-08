@@ -10,4 +10,5 @@ router.route("/")
 router.route("/:code")
     .get(CustomerController.getDetailsByCode)
     .delete(CustomerController.deleteByCode)
+    .put(CustomerController.updateContactNo)
 module.exports=router;
