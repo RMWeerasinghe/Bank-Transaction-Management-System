@@ -16,7 +16,7 @@ class AccountController {
 
     static async getTypeByNo(req, res) {
 
-        const account_no = req.params.no
+        const account_no = req.params.id
 
         Account.getTypeByNo(account_no, (err, result) => {
             if (err) {

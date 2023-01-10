@@ -2,10 +2,12 @@ const pool =require("../config/database.js");
 const Branch = require("./branch.model");
 
 class OnlineTransaction{
+    static transaction_no =1007;
 
 
-    constructor(transaction_id,from_acc,to_acc,amount) {
-        this.transaction_id=transaction_id;
+    constructor(from_acc,to_acc,amount) {
+        OnlineTransaction.transaction_no ++;
+        this.transaction_id=String(OnlineTransaction.transaction_no);
         this.from_acc=from_acc;
         this.to_acc=to_acc;
         this.amount=amount;
@@ -26,21 +28,27 @@ class OnlineTransaction{
     }
 
     createNewOnlineTransaction(response) {
-
         pool.query(
-            `INSERT INTO online_loan_application VALUES (?,?,?,?,?)`,
-            [this.transaction_id, this.from_acc, this.to_acc, this.amount,this.transaction_id],
+            `INSERT INTO online_transaction VALUES (?,?,?,?,?)`,
+            [ this.transaction_id,this.from_acc, this.to_acc, this.amount,this.transaction_time],
             response
         )
-    }
-
-    verifyAccountBalance(account_no,amount,result){
 
     }
 
+    async verifySavingsAccount(){
+        const result = await pool.promise().query({sql:'select verifySavingsAccount(?,?)',values:[this.from_acc,this.amount],rowsAsArray:true})
+        return Number(result[0][0]);
+    }
 
-
+    transferFromSavings(response){
+        pool.query('CALL transferOnline(?,?,?,?)',
+            [this.transaction_id,this.from_acc, this.to_acc, this.amount],
+            response)
+    }
 
 }
 
-module.exports= OnlineTransaction;
+module.exports=OnlineTransaction;
+
+
