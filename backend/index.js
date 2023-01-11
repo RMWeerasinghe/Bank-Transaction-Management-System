@@ -5,7 +5,7 @@ const installmentRoutes=require ("./app/routes/loan_installment.route.js");
 const lateInstallmentRoutes=require ("./app/routes/late_installment.route.js");
 const onlineApplicationRoutes=require ("./app/routes/online_loan_application.route.js");
 const onlineTranRoutes=require ("./app/routes/online_transaction.route.js");
-const customerRoutes=require ("./app/routes/customer.route.js");
+const customerRoutes=require ("./app/routes/customer.routes.js");
 
 
 const app = express();
