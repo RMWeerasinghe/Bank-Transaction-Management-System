@@ -1,7 +1,9 @@
 const pool = require("../config/database.js");
 
 class ATMTransaction {
-  constructor(atm_id, amount, transaction_time, type) {
+  constructor(transaction_id, account_no, atm_id, amount,transaction_time,type) {
+    this.transaction_id = transaction_id;
+    this.account_no = account_no;
     this.atm_id = atm_id;
     this.amount = amount;
     this.transaction_time = transaction_time;
@@ -14,7 +16,7 @@ class ATMTransaction {
 
   static getDetailsById(id, response) {
     pool.query(
-      "SELECT * FROM atm_transaction WHERE id=?",
+      "SELECT * FROM atm_transaction WHERE transaction_id=?",
       [id],
       response
     );
@@ -24,14 +26,14 @@ class ATMTransaction {
     pool.query(
       `INSERT INTO atm_transaction
             VALUES (?,?,?,?)`,
-      [this.atm_id, this.amount, this.transaction_time, this.type],
+      [this.transaction_id, this.account_no, this.atm_id, this.amount,this.transaction_time,this.type],
       response
     );
   }
 
   static deleteById(id, response) {
     pool.query(
-      `DELETE FROM atm_transaction WHERE id = ?`,
+      `DELETE FROM atm_transaction WHERE transaction_id = ?`,
       [id],
       response
     );
