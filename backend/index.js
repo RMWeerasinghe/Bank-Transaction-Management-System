@@ -5,6 +5,7 @@ const installmentRoutes=require ("./app/routes/loan_installment.route.js");
 const lateInstallmentRoutes=require ("./app/routes/late_installment.route.js");
 const onlineApplicationRoutes=require ("./app/routes/online_loan_application.route.js");
 const onlineTranRoutes=require ("./app/routes/online_transaction.route.js");
+const customerRoutes=require ("./app/routes/customer.route.js");
 
 
 const app = express();
@@ -21,6 +22,7 @@ app.use("/api/installments",installmentRoutes);
 app.use("/api/late_installments",lateInstallmentRoutes);
 app.use("/api/online_loan_application",onlineApplicationRoutes);
 app.use("/api/onlineTransaction",onlineTranRoutes);
+app.use("/api/customer",customerRoutes);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}.`);
