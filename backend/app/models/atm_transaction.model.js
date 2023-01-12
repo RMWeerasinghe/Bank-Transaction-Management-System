@@ -1,10 +1,10 @@
 const pool = require("../config/database.js");
 
 class ATMTransaction {
-  constructor(atm_id, amount, transaction_time, type) {
+  constructor(account_no,atm_id, amount ,type) {
+    this.account_no=account_no;
     this.atm_id = atm_id;
     this.amount = amount;
-    this.transaction_time = transaction_time;
     this.type = type;
   }
 
@@ -24,7 +24,7 @@ class ATMTransaction {
     pool.query(
       `INSERT INTO atm_transaction
             VALUES (?,?,?,?)`,
-      [this.atm_id, this.amount, this.transaction_time, this.type],
+      [this.account_no,this.atm_id, this.amount, this.type],
       response
     );
   }
@@ -36,6 +36,20 @@ class ATMTransaction {
       response
     );
   }
+  atmTransfer(response){
+    if (this.type=='deposit'){
+      pool.query('call debitFromATM(?,?,?)',
+          [this.atm_id,this.account_no,this.amount],
+          response
+      )
+    }
+    if (this.type=='withdrawl'){
+      pool.query('call withdrawFromATM(?,?,?)',
+          [this.atm_id,this.account_no,this.amount],
+          response)
+    }
+  }
+
 }
 
 module.exports = ATMTransaction;

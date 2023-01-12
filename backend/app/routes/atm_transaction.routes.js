@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.route("/")
   .get(ATMTransactionController.getAllTransactions)
-  .post(ATMTransactionController.createNewTransaction);
+  .post(ATMTransactionController.transferATM);
 
 router.route("/:id")
   .get(ATMTransactionController.getDetailsById)

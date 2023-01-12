@@ -35,9 +35,9 @@ class OnlineApplicationController {
 
     static async createNewOnlineApplication(req, res) {
 
-        const{application_id,branch_code,customer_id,amount,period_in_months,fd_id}=req.body
+        const{branch_code,customer_id,amount,period_in_months,fd_id}=req.body
 
-        const new_application = new OnlineApplication(application_id,branch_code,customer_id,amount,period_in_months,fd_id)
+        const new_application = new OnlineApplication(branch_code,customer_id,amount,period_in_months,fd_id)
 
         new_application.createNewOnlineLoanApplication((err, result) => {
 

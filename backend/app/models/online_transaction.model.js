@@ -2,16 +2,13 @@ const pool =require("../config/database.js");
 const Branch = require("./branch.model");
 
 class OnlineTransaction{
-    static transaction_no =1007;
 
 
     constructor(from_acc,to_acc,amount) {
-        OnlineTransaction.transaction_no ++;
-        this.transaction_id=String(OnlineTransaction.transaction_no);
         this.from_acc=from_acc;
         this.to_acc=to_acc;
         this.amount=amount;
-        this.transaction_time = new Date().toISOString().slice(0,19).replace('T',' ');
+        this.transaction_time=new Date().toISOString().slice(0,19).replace('T',' ')
     }
 
     static  getAllOnlineTransactions(response){
@@ -29,8 +26,8 @@ class OnlineTransaction{
 
     createNewOnlineTransaction(response) {
         pool.query(
-            `INSERT INTO online_transaction VALUES (?,?,?,?,?)`,
-            [ this.transaction_id,this.from_acc, this.to_acc, this.amount,this.transaction_time],
+            `INSERT INTO online_transaction (from_acc,to_acc,amount,transaction_time) VALUES (?,?,?,?)`,
+            [this.from_acc, this.to_acc, this.amount,this.transaction_time],
             response
         )
 
@@ -42,10 +39,12 @@ class OnlineTransaction{
     }
 
     transferFromSavings(response){
-        pool.query('CALL transferOnline(?,?,?,?)',
-            [this.transaction_id,this.from_acc, this.to_acc, this.amount],
+        pool.query('CALL transferOnline(?,?,?)',
+            [this.from_acc, this.to_acc, this.amount],
             response)
     }
+
+
 
 }
 

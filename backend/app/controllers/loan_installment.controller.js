@@ -35,16 +35,16 @@ class LoanInstallmentController {
 
     static async createNewInstallment(req, res) {
 
-        const {installment_id,loan_number,amount,paid_date,due_date,status,customer_id}=req.body
+        const {loan_number,amount,paid_date,due_date,status,customer_id}=req.body
 
 
-        const new_installment = new LoanInstallment(installment_id,loan_number,amount,paid_date,due_date,status,customer_id)
+        const new_installment = new LoanInstallment(loan_number,amount,paid_date,due_date,status,customer_id)
 
         new_installment.createNewInstallment((err, result) => {
 
             if (err) {
                 return res.status(500)
-                    .send({ error: "Something went wrong." })
+                    .send(err)
             }
 
             return res.send(result)

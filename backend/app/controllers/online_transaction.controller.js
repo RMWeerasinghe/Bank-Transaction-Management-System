@@ -33,13 +33,13 @@ class OnlineTransactionController {
         })
     }
 
-    static async transferFromSavings(req, res) {
+    static async transferOnline(req, res) {
 
         const{from_acc,to_acc,amount}=req.body
 
-        const new_application = new OnlineTransaction(from_acc,to_acc,amount)
+        const new_transaction = new OnlineTransaction(from_acc,to_acc,amount)
 
-        new_application.transferFromSavings((err,result)=>{
+        new_transaction.transferFromSavings((err,result)=>{
             if (err){
                 return res.status(500)
                     .send({Error:"Something went wrong"})

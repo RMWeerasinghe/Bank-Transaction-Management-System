@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.route("/")
     .get(TransactionController.getAllOnlineTransactions)
-    .post(TransactionController.transferFromSavings)
+    .post(TransactionController.transferOnline)
 
 router.route("/:code")
     .get(TransactionController.getOnlineTransactionsByCode)

@@ -57,6 +57,22 @@ class ATMTransactionController {
       return res.send(result);
     });
   }
+  static async transferATM(req, res) {
+
+    const{account_no,atm_id, amount ,type}=req.body
+
+    const new_transaction = new ATMTransaction(account_no,atm_id, amount ,type)
+
+    new_transaction.atmTransfer((err,result)=>{
+      if (err){
+        return res.status(500)
+            .send({Error:"Something went wrong"})
+      }
+
+      return res.send(result)
+
+    })
+  }
 }
 
 module.exports = ATMTransactionController;
