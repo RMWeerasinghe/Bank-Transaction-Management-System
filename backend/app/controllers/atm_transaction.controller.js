@@ -12,11 +12,11 @@ class ATMTransactionController {
     });
   }
 
-  static async getDetailsById(req, res) {
-    const id = req.params.transaction_id;
+  static async getDetailsByAccountNo(req, res) {
+    const account_no = req.params.id;
     
 
-    ATMTransaction.getDetailsById(id, (err, result) => {
+    ATMTransaction.getDetailsByAccountNo(account_no, (err, result) => {
       if (err) {
         return res.status(500).send({ error: "Something went wrong." });
       }

@@ -8,7 +8,7 @@ router.route("/")
   .post(ATMTransactionController.transferATM);
 
 router.route("/:transaction_id")
-  .get(ATMTransactionController.getDetailsById)
+  .get(ATMTransactionController.getDetailsByAccountNo)
   .delete(ATMTransactionController.deleteById);
 
 module.exports = router;

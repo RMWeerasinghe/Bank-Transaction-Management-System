@@ -12,10 +12,10 @@ class ATMTransaction {
     pool.query("SELECT * FROM atm_transaction", response);
   }
 
-  static getDetailsById(id, response) {
+  static getDetailsByAccountNo(account_no, response) {
     pool.query(
-      "SELECT * FROM atm_transaction WHERE id=?",
-      [id],
+      "SELECT * FROM atm_transaction WHERE account_no=?",
+      [account_no],
       response
     );
   }
