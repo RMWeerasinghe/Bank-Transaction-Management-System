@@ -6,6 +6,7 @@ const router = express.Router()
 router.route("/")
     .get(CustomerController.getAllCustomers)
     .post(CustomerController.createNewCustomer)
+    .put(CustomerController.updatePassword)
 
 router.route("/:code")
     .get(CustomerController.getDetailsByCode)

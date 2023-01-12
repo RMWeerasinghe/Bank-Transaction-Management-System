@@ -7,7 +7,7 @@ class BranchController {
         Branch.getAllBranches((err, result) => {
             if (err) {
                 return res.status(500)
-                    .send({ error: "Something went wrong" })
+                    .send(err)
             }
 
             return res.send(result)

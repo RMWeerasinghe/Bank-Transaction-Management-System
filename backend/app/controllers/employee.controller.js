@@ -1,5 +1,6 @@
 const Employee= require("../models/employee.model.js");
 
+
 class EmployeeController {
 
     static async getAllEmployees(req, res) {
@@ -81,6 +82,18 @@ class EmployeeController {
                     .send({ error: "Incorrect Employee ID" })
             }
 
+            return res.send(result)
+        })
+    }
+
+    static async updatePassword(req,res){
+        const {employee_id, password} = req.body
+
+        Employee.updatePassword(employee_id,password,(err,result)=>{
+            if (err){
+                return res.status(500)
+                    .send({Error:"something went wrong"})
+            }
             return res.send(result)
         })
     }

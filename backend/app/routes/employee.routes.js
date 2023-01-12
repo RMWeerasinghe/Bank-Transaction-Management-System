@@ -6,6 +6,7 @@ const router = express.Router()
 router.route("/")
     .get(EmployeeController.getAllEmployees)
     .post(EmployeeController.createNewEmployee)
+    .put(EmployeeController.updatePassword)
 
 router.route("/:code")
     .get(EmployeeController.getDetailsByCode)

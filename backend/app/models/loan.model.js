@@ -13,7 +13,7 @@ class Loan{
         this.interest_rate=interest_rate;
     }
 
-    static  getAllLoan(response){
+    static  getAllLoans(response){
         pool.query(
             "SELECT * FROM loan",
             response

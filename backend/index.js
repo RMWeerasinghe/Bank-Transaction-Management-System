@@ -24,16 +24,20 @@ const savAccTypeRoutes=require('./app/routes/savings_acc_type.route.js');
 const savingsAccRoutes=require('./app/routes/savings_account.route');
 const totTransactionRoutes=require('./app/routes/total_transaction.route.js');
 
+const customerLoginRoutes=require("./app/routes/customer_login.route.js");
+const employeeLoginRoutes=require("./app/routes/employee_login.route.js")
+const validateToken = require("./app/middleware/auth.middleware");
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 //Routes
-app.use("/api/account",customerRoutes);
+app.use("/api/account",accRoutes);
 app.use("/api/atm",atmRoutes);
 app.use("/api/atm_transaction",atmTranRoutes);
 app.use("/api/branch", branchRoutes);
@@ -47,8 +51,8 @@ app.use("/api/fixed_deposit",fdRoutes);
 app.use("/api/individual_customer",indRoutes);
 app.use("/api/loan",loanRoutes);
 app.use("/api/loan_application",loanAppRoutes);
-app.use("/api/loan_installments",installmentRoutes);
-app.use("/api/late_installments",lateInstallmentRoutes);
+app.use("/api/loan_installment",installmentRoutes);
+app.use("/api/late_installment",lateInstallmentRoutes);
 app.use("/api/online_loan_application",onlineApplicationRoutes);
 app.use("/api/online_transaction",onlineTranRoutes);
 app.use ("api/organization_customer",orgRoutes);
@@ -56,6 +60,9 @@ app.use("/api/savings_account",savingsAccRoutes);
 app.use("/api/savings_acc_type",savAccTypeRoutes);
 app.use("/api/total_transaction",totTransactionRoutes);
 
+app.use("/api/customer_login", customerLoginRoutes);
+app.use("/api/employee_login", employeeLoginRoutes);
+//app.use(validateToken);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}.`);

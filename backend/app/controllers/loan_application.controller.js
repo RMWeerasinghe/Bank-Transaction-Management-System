@@ -4,7 +4,7 @@ class Loan_applicationController {
 
     static async getAllLoan_applications(req, res) {
 
-        Loan.getAllLoan_applications((err, result) => {
+        Loan_application.getAllLoan_applications((err, result) => {
             if (err) {
                 return res.status(500)
                     .send({ error: "Something went wrong" })
@@ -18,7 +18,7 @@ class Loan_applicationController {
 
         const application_id = req.params.code
 
-        Loan.getDetailsByCode(application_id, (err, result) => {
+        Loan_application.getDetailsByCode(application_id, (err, result) => {
             if (err) {
                 return res.status(500)
                     .send({ error: "Something went wrong." })
@@ -39,7 +39,7 @@ class Loan_applicationController {
 
         const new_loan_application = new Loan_application(application_id,employee_id,branch_code,customer_id,amount,period_in_months,status)
 
-        new_loan.createNewLoan_application((err, result) => {
+        new_loan_application.createNewLoan_application((err, result) => {
 
             if (err) {
                 return res.status(500)

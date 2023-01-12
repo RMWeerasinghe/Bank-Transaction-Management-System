@@ -86,5 +86,17 @@ class CustomerController {
         })
     }
 
+    static async updatePassword(req,res){
+        const {customer_id, password} = req.body
+
+        Customer.updatePassword(customer_id,password,(err,result)=>{
+            if (err){
+                return res.status(500)
+                    .send({Error:"something went wrong"})
+            }
+            return res.send(result)
+        })
+    }
+
 }
 module.exports= CustomerController;
