@@ -7,7 +7,7 @@ router.route("/")
   .get(ATMTransactionController.getAllTransactions)
   .post(ATMTransactionController.transferATM);
 
-router.route("/:id")
+router.route("/:transaction_id")
   .get(ATMTransactionController.getDetailsById)
   .delete(ATMTransactionController.deleteById);
 

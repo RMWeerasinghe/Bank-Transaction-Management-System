@@ -13,7 +13,8 @@ class ATMTransactionController {
   }
 
   static async getDetailsById(req, res) {
-    const id = req.params.id;
+    const id = req.params.transaction_id;
+    
 
     ATMTransaction.getDetailsById(id, (err, result) => {
       if (err) {
@@ -29,9 +30,9 @@ class ATMTransactionController {
   }
 
   static async createNewTransaction(req, res) {
-    const { atm_id, amount, transaction_time, type } = req.body;
+    const { transaction_id,account_no,atm_id, amount, transaction_time, type } = req.body;
 
-    const new_transaction = new ATMTransaction(atm_id, amount, transaction_time, type);
+    const new_transaction = new ATMTransaction(transaction_id,account_no,atm_id, amount, transaction_time, type);
 
     new_transaction.createNewTransaction((err, result) => {
       if (err) {
