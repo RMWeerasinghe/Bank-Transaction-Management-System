@@ -4,7 +4,9 @@ class CustomerController {
 
     static async getAllCustomers(req, res) {
 
+        console.log(req);
         Customer.getAllCustomers((err, result) => {
+            console.log({result, err});
             if (err) {
                 return res.status(500)
                     .send({ error: "Something went wrong" })
@@ -34,11 +36,11 @@ class CustomerController {
     }
 
     static async createNewCustomer(req, res) {
-
-        const { customer_id,contact_number,email,type,address_no,street,town,hash_password } = req.body
+        console.log(req.body);
+        const { customer_id,contact_number,email,type,address_no,street,town,hash_password } = req.body.customer
 
         const new_customer = new Customer(customer_id,contact_number,email,type,address_no,street,town,hash_password)
-
+        console.log(new_customer);
         new_customer.createNewCustomer((err, result) => {
 
             if (err) {

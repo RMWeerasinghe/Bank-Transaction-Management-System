@@ -12,26 +12,26 @@ export default function CustomerList() {
     },
     {
       title: 'Phone',
-      dataIndex: 'contact_no',
-      key: 'contact_no',
+      dataIndex: 'contact_number',
+      key: 'contact_number',
     },
     {
-      title: 'Email', 
+      title: 'Email',
       dataIndex: 'email',
       key: 'email',
     },
     {
-      title: 'Address No', 
+      title: 'Address No',
       dataIndex: 'address_no',
       key: 'address_no',
     },
     {
-      title: 'Street', 
+      title: 'Street',
       dataIndex: 'street',
       key: 'street',
     },
     {
-      title: 'Town', 
+      title: 'Town',
       dataIndex: 'town',
       key: 'town',
     },

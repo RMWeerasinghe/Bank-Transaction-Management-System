@@ -3,7 +3,7 @@ import { HOST } from './config';
 
 export async function getCustomers() {
   try {
-    const response = await axios.post(`${HOST}/customer`);
+    const response = await axios.get(`${HOST}/customer`);
     return response.data;
   } catch (err) {
     console.log(err);
@@ -13,14 +13,13 @@ export async function getCustomers() {
 
 export async function addCustomer(newCustomer) {
   try {
-    const response = await axios.post(`${HOST}/customer/add`, newCustomer);
+    const response = await axios.post(`${HOST}/customer`, newCustomer);
     console.log(response);
   } catch (err) {
     console.log(err);
     return await Promise.reject('Failed to add to customers list!');
   }
 }
-
 
 export async function getCustomer(customer_id) {
   try {
