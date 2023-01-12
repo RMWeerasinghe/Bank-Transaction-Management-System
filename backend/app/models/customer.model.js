@@ -15,6 +15,7 @@ class Customer{
     }
 
     static  getAllCustomers(response){
+        console.log("asd;las,,d;lamsdlkmalskmd");
         pool.query(
             "SELECT * FROM customer",
             response
