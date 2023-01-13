@@ -1,6 +1,6 @@
 import React from 'react';
 // need to be implemeted via a seperate view 
-import { getCustomer } from '../api/Customers';
+import { getUser } from '../api/User';
 import { Table } from 'antd';
 
 export default function CustomerDetails() {
@@ -43,7 +43,7 @@ export default function CustomerDetails() {
   React.useEffect(() => loadCustomerDetails(), []);
 
   function loadCustomerDetails() {
-    getCustomer()
+    getUser()
       .then((data) => {
         setCustomer(data);
       })
