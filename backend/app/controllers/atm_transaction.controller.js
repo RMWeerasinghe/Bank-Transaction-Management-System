@@ -60,7 +60,7 @@ class ATMTransactionController {
   }
   static async transferATM(req, res) {
 
-    const{account_no,atm_id, amount ,type}=req.body
+    const{account_no,atm_id, amount ,type}=req.body.atmtransaction
 
     const new_transaction = new ATMTransaction(account_no,atm_id, amount ,type)
 

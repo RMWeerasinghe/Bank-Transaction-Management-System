@@ -36,7 +36,7 @@ class CustomerController {
     }
 
     static async createNewCustomer(req, res) {
-        console.log(req.body);
+
         const { customer_id,contact_number,email,type,address_no,street,town,hash_password } = req.body.customer
 
         const new_customer = new Customer(customer_id,contact_number,email,type,address_no,street,town,hash_password)
@@ -89,7 +89,7 @@ class CustomerController {
     }
 
     static async updatePassword(req,res){
-        const {customer_id, password} = req.body
+        const {customer_id, password} = req.body.customer
 
         Customer.updatePassword(customer_id,password,(err,result)=>{
             if (err){

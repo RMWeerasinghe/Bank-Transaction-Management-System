@@ -34,12 +34,14 @@ class OnlineTransactionController {
     }
 
     static async transferOnline(req, res) {
-
-        const{from_acc,to_acc,amount}=req.body
+        console.log("blaslsl")
+        console.log(req.body.onlineTransaction)
+        const{from_acc,to_acc,amount}=req.body.onlineTransaction
 
         const new_transaction = new OnlineTransaction(from_acc,to_acc,amount)
 
         new_transaction.transferFromSavings((err,result)=>{
+            console.log(err,result)
             if (err){
                 return res.status(500)
                     .send({Error:"Something went wrong"})

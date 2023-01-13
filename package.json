@@ -2,5 +2,10 @@
   "name": "Bank-Transaction-Management-System",
   "version": "1.0.0",
   "dependencies": {
+    "antd": "^5.1.4",
+    "axios": "^1.2.2",
+    "formik": "^2.2.9",
+    "react-router-dom": "^6.6.2",
+    "yup": "^0.32.11"
   }
 }
