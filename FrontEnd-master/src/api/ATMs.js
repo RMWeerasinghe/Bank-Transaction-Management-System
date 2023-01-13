@@ -3,7 +3,7 @@ import { HOST } from './config';
 
 export async function getATMs() {
   try {
-    const response = await axios.post(`${HOST}/atm`);
+    const response = await axios.get(`${HOST}/atm`);
     return response.data;
   } catch (err) {
     console.log(err);
@@ -13,7 +13,7 @@ export async function getATMs() {
 
 export async function addATM(newATM) {
   try {
-    const response = await axios.post(`${HOST}/atm/add`, newATM);
+    const response = await axios.post(`${HOST}/atm`, newATM);
     console.log(response);
   } catch (err) {
     console.log(err);

@@ -8,8 +8,8 @@ export default function ATMTransactionReg() {
     account_no: Yup.string().required(),
     atm_id: Yup.string().required(),
     amount: Yup.number().required(),
-    tran_date: Yup.date().required(),
-    acc_type: Yup.string().required(),
+    //transaction_time: Yup.date().required(),
+    type: Yup.string().required(),
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
@@ -18,8 +18,8 @@ export default function ATMTransactionReg() {
       account_no: values.account_no,
       atm_id: values.atm_id,
       amount: values.amount,
-      tran_date: values.tran_date,
-      acc_type: values.acc_type,
+      //tran_date: values.tran_date,
+      type: values.type,
     };
     addATMTransaction({ atmtransaction }).then(() => setSubmitting(false));
   };
@@ -30,8 +30,8 @@ export default function ATMTransactionReg() {
           account_no: '',
           atm_id: '',
           amount: '',
-          tran_date: '',
-          acc_type: '',
+          // tran_date: '',
+          type: '',
         }}
         validationSchema={ATMTransactionRegSchema}
         onSubmit={handleSubmit}
@@ -42,6 +42,7 @@ export default function ATMTransactionReg() {
           };
           return (
             <Form className='customer--reg--form'>
+              <h1>ATM Transfers</h1>
               <span>
                 <Field type='text' name='account_no' placeholder='Account Number' />
               </span>
@@ -51,9 +52,9 @@ export default function ATMTransactionReg() {
               <span>
                 <Field type='text' name='amount' placeholder='Amount' />
               </span>
-              <span>
+              {/* <span>
                 <Field type='date' name='tran_date' placeholder='Transaction Date' />
-              </span>
+              </span> */}
               <span>
                 <Field type='text' name='type' placeholder='Type' />
               </span>
@@ -72,7 +73,7 @@ export default function ATMTransactionReg() {
                     <ErrorMessage name='account_no' component='div' />
                     <ErrorMessage name='atm_id' component='div' />
                     <ErrorMessage name='amount' component='div' />
-                    <ErrorMessage name='tran_date' component='div' />
+                    {/* <ErrorMessage name='tran_date' component='div' /> */}
                     <ErrorMessage name='type' component='div' />
                   </div>
                 )}

@@ -4,7 +4,7 @@ import { getDate } from '../utilities/dateFormat';
 
 export async function getATMTransactions() {
   try {
-    const response = await axios.post(`${HOST}/atm_transaction`);
+    const response = await axios.get(`${HOST}/atm_transaction`);
     // change full date string to ISO format, yyyy-MM-DD
     for (let key in response.data) {
       const newDate = getDate(response.data[key].tran_date);
@@ -19,7 +19,7 @@ export async function getATMTransactions() {
 
 export async function addATMTransaction(newTransaction) {
   try {
-    const response = await axios.post(`${HOST}/atm_transaction/add`, newTransaction);
+    const response = await axios.post(`${HOST}/atm_transaction`, newTransaction);
     console.log(response);
   } catch (err) {
     console.log(err);
@@ -27,27 +27,14 @@ export async function addATMTransaction(newTransaction) {
   }
 }
 
-// export async function updateCustomer(updatedCustomer) {
-//   try {
-//     console.log(updatedCustomer);
-//     const response = await axios.put(
-//       `${HOST}/customers/${updatedCustomer.customerId}`,
-//       updatedCustomer
-//     );
-//   } catch (err) {
-//     console.log(err);
-//     return await Promise.reject('Failed to update customer!');
-//   }
-// }
-
 export async function getATMTransaction(transaction_id) {
   try {
     const response = await axios.get(`${HOST}/atm_transaction/${transaction_id}`);
-    // console.log(response.data);
-    response.data.tran_date = getDate(response.data.tran_date);
+    //if needed change the below to a comment
+    response.data.transaction_time = getDate(response.data.transaction_time);
     return response.data;
   } catch (err) {
     console.log(err);
-    return await Promise.reject('Failed to the atm transaction!');
+    return await Promise.reject('Failed to get the atm transaction!');
   }
 }

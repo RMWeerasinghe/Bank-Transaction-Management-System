@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getLateLoanPayers} from '../api/LoanInstallment';
+import { getLateLoanPayers} from '../api/LateInstallment';
 import { Table } from 'antd';
 
 export default function LateLoanPayersList() {
@@ -10,10 +10,24 @@ export default function LateLoanPayersList() {
       dataIndex: 'branch_code',
       key: 'branch_code',
     },
-    
+    {
+      title: 'Customer ID',
+      dataIndex: 'customer_id',
+      key: 'customer_id',
+    },
+    {
+      title: 'Loan No',
+      dataIndex: 'loan_no',
+      key: 'loan_no',
+    },
+    {
+      title: 'Installment ID',
+      dataIndex: 'installment_id',
+      key: 'installment_id',
+    },
   ];
 
-  const [lateloanpayers, setlateloanpayers] = React.useState();
+  const [late_installment, setlate_installment] = React.useState();
 
   // customer list is loaded on the first component render
   React.useEffect(() => loadLateLoanPayersList(), []);
@@ -21,7 +35,7 @@ export default function LateLoanPayersList() {
   function loadLateLoanPayersList() {
     getLateLoanPayers()
       .then((data) => {
-        setlateloanpayers(data);
+        setlate_installment(data);
       })
       .catch((err) => console.log(err));
   }
@@ -32,7 +46,7 @@ export default function LateLoanPayersList() {
     <div>
       <h1>Late Loan Payers Report</h1>
 
-      {<Table dataSource={lateloanpayers} columns={columns} />}
+      {<Table dataSource={late_installment} columns={columns} />}
     </div>
   );
 }

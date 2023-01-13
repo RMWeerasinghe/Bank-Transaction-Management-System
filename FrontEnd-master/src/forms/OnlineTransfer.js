@@ -18,7 +18,7 @@ export default function OnlineTransactionReg() {
       from_acc: values.from_acc,
       to_acc: values.to_acc,
       amount: values.amount,
-      tran_date: values.date,
+      transaction_time: values.date,
     };
     addOnlineTransaction({ onlineTransaction }).then(() => setSubmitting(false));
   };

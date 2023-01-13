@@ -5,7 +5,6 @@ import * as Yup from 'yup';
 // Use this instead https://github.com/jannikbuschke/formik-antd
 export default function LoanApplicantReg() {
   const LoanApplicantRegSchema = Yup.object().shape({
-    // application_id: Yup.string().required(),
     employee_id: Yup.string().required(),
     branch_code: Yup.string().required(),
     amount: Yup.string().required(),
@@ -18,11 +17,10 @@ export default function LoanApplicantReg() {
   const handleSubmit = (values, { setSubmitting }) => {
     setSubmitting(true);
     const LoanApplicant = {
-        // application_id: values.application_id,
         employee_id: values.employee_id,
         branch_code: values.branch_code,
         amount: values.amount,
-        period: values.period,
+        period_in_months: values.period,
         status: values.status,
         customer_id: values.customer_id,
     

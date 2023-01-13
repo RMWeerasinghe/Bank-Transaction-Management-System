@@ -4,7 +4,7 @@ import { getDate } from '../utilities/dateFormat';
 
 export async function getChildCustomers() {
   try {
-    const response = await axios.post(`${HOST}/child_customer`);
+    const response = await axios.get(`${HOST}/child_customer`);
     // change full date string to ISO format, yyyy-MM-DD
     for (let key in response.data) {
       const newDate = getDate(response.data[key].date_of_birth);
@@ -19,7 +19,7 @@ export async function getChildCustomers() {
 
 export async function addChildCustomer(newChildCustomer) {
   try {
-    const response = await axios.post(`${HOST}/child_customer/add`, newChildCustomer);
+    const response = await axios.post(`${HOST}/child_customer`, newChildCustomer);
     console.log(response);
   } catch (err) {
     console.log(err);

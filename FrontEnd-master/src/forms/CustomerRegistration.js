@@ -52,6 +52,7 @@ export default function CustomerReg() {
           };
           return (
             <Form className='customer--reg--form'>
+              <h1>Customer Contact Info Registration</h1>
               <span>
                 <Field
                   type='text'

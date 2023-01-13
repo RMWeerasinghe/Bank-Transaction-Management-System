@@ -4,7 +4,7 @@ import { getDate } from '../utilities/dateFormat';
 
 export async function getLoanCustomers() {
   try {
-    const response = await axios.post(`${HOST}/loan`);
+    const response = await axios.get(`${HOST}/loan`);
     // change full date string to ISO format, yyyy-MM-DD
     for (let key in response.data) {
       const newDate = getDate(response.data[key].date_issued);
@@ -19,7 +19,7 @@ export async function getLoanCustomers() {
 
 export async function addLoanCustomer(newLoanCustomer) {
   try {
-    const response = await axios.post(`${HOST}/loan/add`, newLoanCustomer);
+    const response = await axios.post(`${HOST}/loan`, newLoanCustomer);
     console.log(response);
   } catch (err) {
     console.log(err);

@@ -1,5 +1,5 @@
 import React from 'react';
-
+// need to be implemeted via a seperate view 
 import { getCustomer } from '../api/Customers';
 import { Table } from 'antd';
 
