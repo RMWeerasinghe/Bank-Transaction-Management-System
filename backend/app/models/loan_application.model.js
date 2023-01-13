@@ -31,8 +31,8 @@ class Loan_application{
     createNewLoan_application(response) {
         pool.query(
             `INSERT INTO loan_application
-            VALUES (?,?,?,?,?,?,?)`,
-            [this.application_id,this.employee_id,this.branch_code,this.customer_id,this.amount,this.period_in_months,this.status],
+            VALUES (?,?,?,?,?,?)`,
+            [this.application_id,this.employee_id,this.branch_code,this.customer_id,this.amount,this.period_in_months],
             response
         )
 
