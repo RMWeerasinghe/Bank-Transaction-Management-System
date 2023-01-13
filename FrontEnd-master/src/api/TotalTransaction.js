@@ -5,6 +5,7 @@ import { HOST } from './config';
 export async function getTotalTransactions(branch_code) {
   try {
     const response = await axios.get(`${HOST}/total_transaction/${branch_code}`);
+    console.log(response)
     return response.data;
   } catch (err) {
     console.log(err);

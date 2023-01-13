@@ -15,8 +15,8 @@ class TotalTransactionController {
     }
 
     static async getTotalTransactionsByCode(req, res) {
-
         const branch_code = req.params.code
+
 
         TotalTransaction.getAllByCode(branch_code, (err, result) => {
             if (err) {
@@ -29,7 +29,7 @@ class TotalTransactionController {
                     .send({ error: "No transactions" })
             }
 
-            return res.send(result[0])
+            return res.send(result)
         })
     }
 

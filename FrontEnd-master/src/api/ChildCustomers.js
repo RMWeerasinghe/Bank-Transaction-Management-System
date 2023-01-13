@@ -18,6 +18,7 @@ export async function getChildCustomers() {
 }
 
 export async function addChildCustomer(newChildCustomer) {
+  console.log("frontend function")
   try {
     const response = await axios.post(`${HOST}/child_customer`, newChildCustomer);
     console.log(response);

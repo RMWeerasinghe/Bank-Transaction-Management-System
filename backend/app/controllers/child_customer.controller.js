@@ -28,8 +28,10 @@ class ChildCustomerController {
   }
 
   static async createNewChildCustomer(req, res) {
+    console.log("creating")
+    console.log(req.body.childCustomer)
     const {
-      customer_id,
+
       first_name,
       middle_name,
       last_name,
@@ -43,7 +45,7 @@ class ChildCustomerController {
     } = req.body.childCustomer;
 
     const new_child_customer = new ChildCustomer(
-      customer_id,
+
       first_name,
       middle_name,
       last_name,

@@ -29,7 +29,7 @@ class LateInstallmentController {
                     .send({ error: "Incorrect Branch Code" })
             }
 
-            return res.send(result[0])
+            return res.send(result)
         })
     }
 

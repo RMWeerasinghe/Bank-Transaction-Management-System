@@ -1,4 +1,5 @@
 const pool = require("../config/database.js");
+const bcrypt = require("bcrypt");
 
 class BranchManager {
   constructor(branch_code, employee_id) {
@@ -34,6 +35,16 @@ class BranchManager {
       response
     );
   }
+
+
+
+
+  static findManager(employee_id,response){
+    pool.query('SELECT * FROM branch_manger_info where employee_id=?',
+        [employee_id],
+        response)
+  }
+
 }
 
 module.exports = BranchManager;

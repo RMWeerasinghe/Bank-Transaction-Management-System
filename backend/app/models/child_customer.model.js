@@ -2,7 +2,7 @@ const pool = require("../config/database.js");
 
 class ChildCustomer {
   constructor(
-    customer_id,
+
     first_name,
     middle_name,
     last_name,
@@ -14,7 +14,7 @@ class ChildCustomer {
     guardian_last_name,
     guardian_NIC
   ) {
-    this.customer_id = customer_id;
+
     this.first_name = first_name;
     this.middle_name = middle_name;
     this.last_name = last_name;
@@ -41,10 +41,19 @@ class ChildCustomer {
 
   createNewChildCustomer(response) {
     pool.query(
-      `INSERT INTO child_customer
-      VALUES (?,?,?,?,?,?,?,?,?,?,?)`,
+      `INSERT INTO child_customer(first_name,
+                                  middle_name,
+                                  last_name,
+                                  date_of_birth,
+                                  gender,
+                                  nationality,
+                                  guardian_first_name,
+                                  guardian_middle_name,
+                                  guardian_last_name,
+                                  guardian_NIC)
+      VALUES (?,?,?,?,?,?,?,?,?,?)`,
       [
-        this.customer_id,
+
         this.first_name,
         this.middle_name,
         this.last_name,
@@ -60,7 +69,7 @@ class ChildCustomer {
     );
   }
 
-  updateByCustomerID(response) {
+  updateByCustomerID(customer_id,response) {
     pool.query(
       `UPDATE child_customer
       SET first_name = ?,
@@ -85,7 +94,8 @@ class ChildCustomer {
         this.guardian_middle_name,
         this.guardian_last_name,
         this.guardian_NIC,
-        this.customer_id
+          customer_id
+
       ],
       response
     );
