@@ -10,6 +10,8 @@ import CurrAccountReg from './forms/CurrAccountRegistration';
 import SavAccountReg from './forms/SavAccountRegistration';
 import FDCustomerReg from './forms/FDRegistration';
 
+import BranchManagerLoginReg from './forms/BranchManagerLogin';
+
 import ATMTransactionReg from './forms/ATMTransfer';
 import OnlineTransactionReg from './forms/OnlineTransfer';
 
@@ -85,6 +87,7 @@ function App() {
             <Route path = 'lateloanReport/:branchID' element= {<LateLoanPayersList/>}/>
             <Route path = 'totaltransactionRequest' element = {<TotalTransactionReg/>} />
             <Route path = 'totaltransactionReport/:branchID' element = {<TotalTransactionsList/>} /> 
+            <Route path = 'login' element = {<BranchManagerLoginReg/>} />
           </Route>
           
           {/*for homepage */}
