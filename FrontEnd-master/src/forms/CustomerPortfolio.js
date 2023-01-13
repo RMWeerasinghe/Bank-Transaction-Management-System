@@ -1,7 +1,7 @@
 import React from 'react';
 //create a customer portfolio api
 // need to change the below line , line 22, line 41
-import { getCustomer } from '../api/Customers';
+import { getPortfolio } from '../api/customer_info';
 import { Table } from 'antd';
 
 export default function CustomerAccsDetails() {
@@ -25,7 +25,7 @@ export default function CustomerAccsDetails() {
   React.useEffect(() => loadCustomerAccsDetails(), []);
 
   function loadCustomerAccsDetails() {
-    getCustomer()
+    getPortfolio()
       .then((data) => {
         setCustomer(data);
       })
@@ -38,7 +38,7 @@ export default function CustomerAccsDetails() {
     <div>
       <h1>Portfolio</h1>
 
-      {<Table dataSource={customer} columns={columns} />}
+      {<Table dataSource={customer_info} columns={columns} />}
     </div>
   );
 }

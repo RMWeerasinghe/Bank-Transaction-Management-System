@@ -1,5 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 //import the function from '../api/Authentication';
 import { loginBranchManager } from '../api/Authentication';
@@ -11,6 +12,7 @@ export default function BranchManagerLoginReg() {
     password: Yup.string().required(),
   });
 
+  const navigate = useNavigate();
   const handleSubmit = (values, { setSubmitting }) => {
     setSubmitting(true);
     const branchmanager_login = {
@@ -18,7 +20,14 @@ export default function BranchManagerLoginReg() {
       password: values.password,
     };
     // need to add the function 
-    loginBranchManager({ branchmanager_login }).then(() => setSubmitting(false));
+    loginBranchManager({ branchmanager_login }).then(() => {
+      setSubmitting(false)
+      navigate('/branchManagerPortal')
+    }).catch(() => {
+      setSubmitting(false)
+      navigate('/branchManagerPortal')
+    }
+    );
   };
   return (
     <div>

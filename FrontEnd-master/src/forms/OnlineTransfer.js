@@ -42,10 +42,10 @@ export default function OnlineTransactionReg() {
           return (
             <Form className='online--tran--form'>
               <span>
-                <Field type='text' name='from_account' placeholder='From_Account' />
+                <Field type='text' name='from_acc' placeholder='From_Account' />
               </span>
               <span>
-                <Field type='text' name='to_account' placeholder='To_Account' />
+                <Field type='text' name='to_acc' placeholder='To_Account' />
               </span>
               <span>
                 <Field type='text' name='amount' placeholder='Amount' />
