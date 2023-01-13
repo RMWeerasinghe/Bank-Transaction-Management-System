@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button } from 'antd';
 
 //import the function from '../api/Authentication';
-// import { addATM } from '../api/ATMs';
+import { loginBranchManager } from '../api/Authentication';
 import * as Yup from 'yup';
 // Use this instead https://github.com/jannikbuschke/formik-antd
 export default function BranchManagerLoginReg() {
@@ -18,7 +18,7 @@ export default function BranchManagerLoginReg() {
       password: values.password,
     };
     // need to add the function 
-    addATM({ branchmanager_login }).then(() => setSubmitting(false));
+    loginBranchManager({ branchmanager_login }).then(() => setSubmitting(false));
   };
   return (
     <div>
