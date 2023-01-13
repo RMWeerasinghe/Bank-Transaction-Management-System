@@ -4,15 +4,15 @@ export default function CustomerHandling() {
   return (
     <div>
       <div>
-        <a href='customerPortal/customer-login'>Customer Portal</a>
+        <a STYLE="background-color: rgb(0,255,255)" href='customerPortal/customer-login' style={{ color: '#000000' }}>Customer Portal</a>
       </div>
 
       <div>
-        <a href='employeePortal/employee-login'>Employee Portal</a>
+        <a STYLE="background-color: rgb(0,255,255)" href='employeePortal/employee-login' style={{ color: '#000000' }}>Employee Portal</a>
       </div>
 
       <div>
-        <a href='branchManagerPortal/login'>Branch Manager Portal</a>
+        <a STYLE="background-color: rgb(0,255,255)" href='branchManagerPortal/login' style={{ color: '#000000' }} >Branch Manager Portal </a>
       </div>
     </div>
   );
