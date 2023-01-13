@@ -29,7 +29,7 @@ export default function TotalTransactionReg() {
           };
           return (
             <Form className='lateLoanPayer--reg--form'>
-              <h1>Late Loan Payers Request</h1>
+              <h1>Total Transaction Report Request</h1>
               <span>
                 <Field type='text' name='branch_code' placeholder='branch_code' />
               </span>
