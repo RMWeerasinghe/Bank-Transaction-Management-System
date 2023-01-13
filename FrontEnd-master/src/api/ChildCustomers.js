@@ -19,7 +19,7 @@ export async function getChildCustomers() {
 
 export async function addChildCustomer(newChildCustomer) {
   try {
-    const response = await axios.post(`${HOST}/child_customer/add`, newChildCustomer);
+    const response = await axios.post(`${HOST}/child_customer`, newChildCustomer);
     console.log(response);
   } catch (err) {
     console.log(err);

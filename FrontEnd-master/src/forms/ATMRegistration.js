@@ -33,11 +33,12 @@ export default function ATMReg() {
           };
           return (
             <Form className='atm--reg--form'>
+              <h1>ATM Registration</h1>
               <span>
                 <Field type='text' name='town' placeholder='Town' />
               </span>
               <span>
-                <Field type='text' name='branchCode' placeholder='Branch Code' />
+                <Field type='text' name='branch_code' placeholder='Branch Code' />
               </span>
 
               <Button
@@ -52,7 +53,7 @@ export default function ATMReg() {
                 Object.values(props.errors).length !== 0 && (
                   <div className='atm--reg--form--errors'>
                     <ErrorMessage name='town' component='div' />
-                    <ErrorMessage name='branchCode' component='div' />
+                    <ErrorMessage name='branch_code' component='div' />
                   </div>
                 )}
             </Form>

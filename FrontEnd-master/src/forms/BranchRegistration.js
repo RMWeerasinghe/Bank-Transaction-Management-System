@@ -5,27 +5,27 @@ import * as Yup from 'yup';
 // Use this instead https://github.com/jannikbuschke/formik-antd
 export default function BranchReg() {
   const branchRegSchema = Yup.object().shape({
-    branchName: Yup.string().required(),
+    branch_name: Yup.string().required(),
     //branchCode: Yup.string().required(),
-    branchCity: Yup.string().required(),
-    contactNo: Yup.string()
+    branch_city: Yup.string().required(),
+    contact_number: Yup.string()
       .matches(/(^[0-9]+$|^\+[0-9]+$)/, 'Invalid Phone Number')
       .min(10, 'Phone number must be at least 10 digits')
       .max(12, 'Phone number must be at most 12 digits')
       .required(),
     email: Yup.string().required,
-    managerName: Yup.string().required(),
+    // managerName: Yup.string().required(),
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
     setSubmitting(true);
     const branch = {
-      branchName: values.branchName,
+      branch_name: values.branch_name,
       //branchCode: values.branchCode,
-      branchCity: values.branchCity,
-      contactNo: values.contactNo,
+      branch_city: values.branch_city,
+      contact_number: values.contact_number,
       email: values.email,
-      managerName: values.managerName,
+      // managerName: values.managerName,
     };
     addBranch({ branch }).then(() => setSubmitting(false));
   };
@@ -33,12 +33,12 @@ export default function BranchReg() {
     <div>
       <Formik
         initialValues={{
-          branchName: '',
+          branch_name: '',
           //branchCode: '',
-          branchCity: '',
-          contactNo: '',
+          branch_city: '',
+          contact_number: '',
           email: '',
-          managerName: '',
+          // managerName: '',
         }}
         validationSchema={branchRegSchema}
         onSubmit={handleSubmit}
@@ -49,10 +49,11 @@ export default function BranchReg() {
           };
           return (
             <Form className='branch--reg--form'>
+              <h1>Branch Registration</h1>
               <span>
                 <Field
                   type='text'
-                  name='branchName'
+                  name='branch_name'
                   placeholder='Branch Name'
                   style={
                     props.touched.name && props.errors.name
@@ -62,17 +63,17 @@ export default function BranchReg() {
                 />
               </span>
               <span>
-                <Field type='text' name='branchCity' placeholder='Branch City' />
+                <Field type='text' name='branch_city' placeholder='Branch City' />
               </span>
               <span>
-                <Field type='text' name='contactNo' placeholder='Phone' />
+                <Field type='text' name='contact_number' placeholder='Phone' />
               </span>
               <span>
                 <Field type='text' name='email' placeholder='Email' />
               </span>
-              <span>
+              {/* <span>
                 <Field type='text' name='managerName' placeholder='Manager Name' />
-              </span>
+              </span> */}
 
               <Button
                 className='branch--reg--form--submit'
@@ -85,11 +86,11 @@ export default function BranchReg() {
               {Object.values(props.touched).includes(true) &&
                 Object.values(props.errors).length !== 0 && (
                   <div className='branch--reg--form--errors'>
-                    <ErrorMessage name='branchName' component='div' />
-                    <ErrorMessage name='branchCity' component='div' />
-                    <ErrorMessage name='contactNo' component='div' />
+                    <ErrorMessage name='branch_name' component='div' />
+                    <ErrorMessage name='branch_city' component='div' />
+                    <ErrorMessage name='contact_number' component='div' />
                     <ErrorMessage name='email' component='div' />
-                    <ErrorMessage name='managerName' component='div' />
+                    {/* <ErrorMessage name='managerName' component='div' /> */}
                   </div>
                 )}
             </Form>

@@ -5,33 +5,33 @@ import * as Yup from 'yup';
 // Use this instead https://github.com/jannikbuschke/formik-antd
 export default function ChildCustomerReg() {
   const childCustomerRegSchema = Yup.object().shape({
-    firstName: Yup.string().required(),
-    middleName: Yup.string().required(),
-    lastName: Yup.string().required(),
-    dob: Yup.date().required(),
-    age: Yup.number().required(),
+    first_name: Yup.string().required(),
+    middle_name: Yup.string().required(),
+    last_name: Yup.string().required(),
+    date_of_birth: Yup.date().required(),
+    // age: Yup.number().required(),
     gender: Yup.string().required(),
     nationality: Yup.string().required(),
-    guardianFirstName: Yup.string().required,
-    guardianMiddleName: Yup.string().required,
-    guardianLastName: Yup.string().required,
-    guardianNIC: Yup.string().required,
+    guardian_first_name: Yup.string().required,
+    guardian_middle_name: Yup.string().required,
+    guardian_last_name: Yup.string().required,
+    guardian_NIC: Yup.string().required,
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
     setSubmitting(true);
     const childCustomer = {
-      firstName: values.firstName,
-      middleName: values.middleName,
-      lastName: values.lastName,
-      dateofbirth: values.dob,
-      age: values.age,
+      first_name: values.first_name,
+      middle_name: values.middle_name,
+      last_name: values.last_name,
+      date_of_birth: values.date_of_birth,
+      // age: values.age,
       gender: values.gender,
       nationality: values.nationality,
-      guardianFirstName: values.guardianFirstName,
-      guardianMiddleName: values.guardianMiddleName,
-      guardianLastName: values.guardianLastName,
-      guardianNIC: values.guardianNIC,
+      guardian_first_name: values.guardian_first_name,
+      guardian_middle_name: values.guardian_middle_name,
+      guardian_last_name: values.guardian_last_name,
+      guardian_NIC: values.guardian_NIC,
     };
     addChildCustomer({ childCustomer }).then(() => setSubmitting(false));
   };
@@ -39,17 +39,17 @@ export default function ChildCustomerReg() {
     <div>
       <Formik
         initialValues={{
-          firstName: '',
-          middleName: '',
-          lastName: '',
-          dob: '',
-          age: '',
+          first_name: '',
+          middle_name: '',
+          last_name: '',
+          date_of_birth: '',
+          // age: '',
           gender: '',
           nationality: '',
-          guardianFirstName: '',
-          guardianMiddleName: '',
-          guardianLastName: '',
-          guardianNIC: '',
+          guardian_first_name: '',
+          guardian_middle_name: '',
+          guardian_last_name: '',
+          guardian_NIC: '',
         }}
         validationSchema={childCustomerRegSchema}
         onSubmit={handleSubmit}
@@ -60,10 +60,11 @@ export default function ChildCustomerReg() {
           };
           return (
             <Form className='childCustomer--reg--form'>
+              <h1>Child Customer Registration</h1>
               <span>
                 <Field
                   type='text'
-                  name='firstName'
+                  name='first_name'
                   placeholder='First Name'
                   style={
                     props.touched.name && props.errors.name
@@ -75,7 +76,7 @@ export default function ChildCustomerReg() {
               <span>
                 <Field
                   type='text'
-                  name='middleName'
+                  name='middle_name'
                   placeholder='Middle Name'
                   style={
                     props.touched.name && props.errors.name
@@ -87,7 +88,7 @@ export default function ChildCustomerReg() {
               <span>
                 <Field
                   type='text'
-                  name='lastName'
+                  name='last_name'
                   placeholder='Last Name'
                   style={
                     props.touched.name && props.errors.name
@@ -97,11 +98,11 @@ export default function ChildCustomerReg() {
                 />
               </span>
               <span>
-                <Field type='date' name='dob' placeholder='Date of Birth' />
+                <Field type='date' name='date_of_birth' placeholder='Date of Birth' />
               </span>
-              <span>
+              {/* <span>
                 <Field type='number' name='age' placeholder='Age' />
-              </span>
+              </span> */}
               <span>
                 <Field type='text' name='gender' placeholder='Gender' />
               </span>
@@ -109,16 +110,16 @@ export default function ChildCustomerReg() {
                 <Field type='text' name='nationality' placeholder='Nationality' />
               </span>
               <span>
-                <Field type='text' name='guardianFirstName' placeholder='Guardian First Name' />
+                <Field type='text' name='guardian_first_name' placeholder='Guardian First Name' />
               </span>
               <span>
-                <Field type='text' name='guardianMiddleName' placeholder='Guardian Middle Name' />
+                <Field type='text' name='guardian_middle_name' placeholder='Guardian Middle Name' />
               </span>
               <span>
-                <Field type='text' name='guardianLastName' placeholder='Guardian Last Name' />
+                <Field type='text' name='guardian_last_name' placeholder='Guardian Last Name' />
               </span>
               <span>
-                <Field type='text' name='guardianNIC' placeholder='Guardian NIC' />
+                <Field type='text' name='guardian_NIC' placeholder='Guardian NIC' />
               </span>
 
               <Button
@@ -132,17 +133,17 @@ export default function ChildCustomerReg() {
               {Object.values(props.touched).includes(true) &&
                 Object.values(props.errors).length !== 0 && (
                   <div className='childCustomer--reg--form--errors'>
-                    <ErrorMessage name='firstName' component='div' />
-                    <ErrorMessage name='middleName' component='div' />
-                    <ErrorMessage name='lastName' component='div' />
-                    <ErrorMessage name='dob' component='div' />
-                    <ErrorMessage name='age' component='div' />
+                    <ErrorMessage name='first_name' component='div' />
+                    <ErrorMessage name='middle_name' component='div' />
+                    <ErrorMessage name='last_name' component='div' />
+                    <ErrorMessage name='date_of_birth' component='div' />
+                    {/* <ErrorMessage name='age' component='div' /> */}
                     <ErrorMessage name='gender' component='div' />
                     <ErrorMessage name='nationality' component='div' />
-                    <ErrorMessage name='guardianFirstName' component='div' />
-                    <ErrorMessage name='guardianMiddleName' component='div' />
-                    <ErrorMessage name='guardianLastName' component='div' />
-                    <ErrorMessage name='guardianNIC' component='div' />
+                    <ErrorMessage name='guardian_first_name' component='div' />
+                    <ErrorMessage name='guardian_middle_name' component='div' />
+                    <ErrorMessage name='guardian_last_name' component='div' />
+                    <ErrorMessage name='guardian_NIC' component='div' />
                   </div>
                 )}
             </Form>

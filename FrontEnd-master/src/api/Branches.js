@@ -13,7 +13,7 @@ export async function getBranches() {
 
 export async function addBranch(newBranch) {
   try {
-    const response = await axios.post(`${HOST}/branch/add`, newBranch);
+    const response = await axios.post(`${HOST}/branch`, newBranch);
     console.log(response);
   } catch (err) {
     console.log(err);

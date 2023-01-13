@@ -7,8 +7,9 @@ export default function CurrAccountReg() {
   const CurrAccountRegSchema = Yup.object().shape({
     // account_no: Yup.string().required(),
     branch_code: Yup.string().required(),
-    customer_id: Yup.string().required(),
     balance: Yup.number(),
+    customer_id: Yup.string().required(),
+    
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
@@ -16,8 +17,9 @@ export default function CurrAccountReg() {
     const currAcc = {
       // account_no: values.account_no,
       branch_code: values.branch_code,
-      customer_id: values.customer_id,
       balance: values.balance,
+      customer_id: values.customer_id,
+      
     };
     addCurrAccount({ currAcc }).then(() => setSubmitting(false));
   };
@@ -40,28 +42,16 @@ export default function CurrAccountReg() {
           return (
             <Form className='currAcc--reg--form'>
               <h1>Current Account Registration</h1>
-              {/* <span>
-                <Field
-                  type='text'
-                  name='account_no'
-                  placeholder='account_no'
-                  style={
-                    // check
-                    props.touched.name && props.errors.name
-                      ? errorInputStyle
-                      : null
-                  }
-                />
-              </span> */}
               <span>
                 <Field type='text' name='branch_code' placeholder='branch_code' />
               </span>
               <span>
-                <Field type='text' name='customer_id' placeholder='customer_id' />
-              </span>
-              <span>
                 <Field type='int' name='balance' placeholder='balance' />
               </span>
+              <span>
+                <Field type='text' name='customer_id' placeholder='customer_id' />
+              </span>
+             
           
 
               <Button
@@ -75,10 +65,10 @@ export default function CurrAccountReg() {
               {Object.values(props.touched).includes(true) &&
                 Object.values(props.errors).length !== 0 && (
                   <div className='currAcc--reg--form--errors'>
-                    {/* <ErrorMessage name='account_no' component='div' /> */}
                     <ErrorMessage name='branch_code' component='div' />
-                    <ErrorMessage name='customer_id' component='div' />
                     <ErrorMessage name='balance' component='div' />
+                    <ErrorMessage name='customer_id' component='div' />
+                    
                   </div>
                 )}
             </Form>

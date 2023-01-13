@@ -14,7 +14,7 @@ export async function getEmployees() {
 
 export async function addEmployee(newEmployee) {
   try {
-    const response = await axios.post(`${HOST}/employee/add`, newEmployee);
+    const response = await axios.post(`${HOST}/employee`, newEmployee);
     console.log(response);
   } catch (err) {
     console.log(err);

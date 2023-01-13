@@ -13,7 +13,7 @@ export async function getATMs() {
 
 export async function addATM(newATM) {
   try {
-    const response = await axios.post(`${HOST}/atm/add`, newATM);
+    const response = await axios.post(`${HOST}/atm`, newATM);
     console.log(response);
   } catch (err) {
     console.log(err);

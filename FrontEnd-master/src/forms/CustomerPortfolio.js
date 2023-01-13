@@ -1,5 +1,6 @@
 import React from 'react';
-
+//create a customer portfolio api
+// need to change the below line , line 22, line 41
 import { getCustomer } from '../api/Customers';
 import { Table } from 'antd';
 
