@@ -35,9 +35,9 @@ class Loan_applicationController {
 
     static async createNewLoan_application(req, res) {
 
-        const { application_id,employee_id,branch_code,customer_id,amount,period_in_months,status } = req.body.LoanApplicant
+        const { application_id,employee_id,branch_code,customer_id,amount,period_in_months } = req.body.Loan_application
 
-        const new_loan_application = new Loan_application(application_id,employee_id,branch_code,customer_id,amount,period_in_months,status)
+        const new_loan_application = new Loan_application(application_id,employee_id,branch_code,customer_id,amount,period_in_months)
 
         new_loan_application.createNewLoan_application((err, result) => {
 
