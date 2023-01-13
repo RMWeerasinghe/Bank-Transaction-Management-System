@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import background from './photo_1.jpg';
 import './App.css';
 import HomePage from './pages/HomePage';
 import CustomerReg from './forms/CustomerRegistration';
@@ -34,9 +34,21 @@ import TotalTransactionReg from './forms/TotalTransactionreportRequest';
 import TotalTransactionsList from './forms/TotalTransactionReport';
 import OnlineLoanCustomerReg from './forms/OnlineLoanRegistration';
 function App() {
+  const myStyle={
+    backgroundImage: 
+    "url('https://c0.wallpaperflare.com/path/128/195/784/sri-lanka-colombo-galle-face-dr-hotel-def99d38380e711fadc769ff547fdb2e.jpg')",
+    height:'100vh',
+    marginTop:'-70px',
+    fontSize:'35px',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+};
   return (
-    <div className="App"> 
-    <h1>Our Bank</h1>
+    <div className="App" style= {myStyle}> 
+    <h1>National Development Bank</h1>
+    {/* <div style={{ backgroundImage:`url(${image})`,backgroundRepeat:"no-repeat",backgroundSize:"contain" }}>
+    </div> */}
+    
     <BrowserRouter>
         <Routes>
           <Route path = '/EmployeePortal'>
