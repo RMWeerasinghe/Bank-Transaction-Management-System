@@ -35,7 +35,7 @@ class Fixed_depositController {
 
     static async createNewFixed_deposit(req, res) {
 
-        const { fd_id,customer_id,branch_code,savings_acc_no,amount,date_opened,period_in_months,maturity_date } = req.body.FDcustomer
+        const { fd_id,customer_id,branch_code,savings_acc_no,amount,date_opened,period_in_months,maturity_date } = req.body.Fixed_deposit
 
         const new_fixed_deposit = new Fixed_deposit(fd_id,customer_id,branch_code,savings_acc_no,amount,date_opened,period_in_months,maturity_dat)
 
