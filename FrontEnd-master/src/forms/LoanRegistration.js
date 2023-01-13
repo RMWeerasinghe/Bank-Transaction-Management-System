@@ -11,6 +11,7 @@ export default function LoanCustomerReg() {
     interest_rate: Yup.string().required(),
     date_issued: Yup.date().required(),
     period: Yup.number().required(),
+    amount: Yup.number().required(),
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
@@ -22,6 +23,7 @@ export default function LoanCustomerReg() {
       interest_rate: values.interest_rate,
       date_issued: values.date_issued,
       period: values.period,
+      amount: values.amount,
     };
     addLoanCustomer({ Loancustomer }).then(() => setSubmitting(false));
   };
@@ -35,6 +37,7 @@ export default function LoanCustomerReg() {
           interest_rate: '',
           date_issued: '',
           period: '',
+          amount:'',
         }}
         validationSchema={LoancustomerRegSchema}
         onSubmit={handleSubmit}
@@ -68,6 +71,9 @@ export default function LoanCustomerReg() {
               <span>
                 <Field type='text' name='period' placeholder='Period' />
               </span>
+              <span>
+                <Field type='text' name='amount' placeholder='Amount' />
+              </span>
 
               <Button
                 className='Loancustomer--reg--form--submit'
@@ -86,6 +92,7 @@ export default function LoanCustomerReg() {
                     <ErrorMessage name='interrest_rate' component='div' />
                     <ErrorMessage name='date_issued' component='div' />
                     <ErrorMessage name='period' component='div' />
+                    <ErrorMessage name='amount' component='div' />
                   </div>
                 )}
             </Form>

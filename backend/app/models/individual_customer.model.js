@@ -3,8 +3,8 @@ const pool =require("../config/database.js");
 class Individual_customer{
 
 
-    constructor(NIC,first_name,middle_name,last_name,date_of_birth,gender,nationality) {
-        
+    constructor(customer_id,NIC,first_name,middle_name,last_name,date_of_birth,gender,nationality) {
+        this.customer_id=customer_id;
         this.NIC=NIC;
         this.first_name=first_name;
         this.middle_name=middle_name;
@@ -31,9 +31,9 @@ class Individual_customer{
 
     createNewIndividual_customer(response) {
         pool.query(
-            `INSERT INTO individual_customer(NIC,first_name,middle_name,last_name,date_of_birth,gender,nationality)
-            VALUES (?,?,?,?,?,?,?)`,
-            [this.NIC,this.first_name,this.middle_name,this.last_name,this.date_of_birth,this.gender,this.nationality],
+            `INSERT INTO individual_customer
+            VALUES (?,?,?,?,?,?,?,?)`,
+            [this.customer_id,this.NIC,this.first_name,this.middle_name,this.last_name,this.date_of_birth,this.gender,this.nationality],
             response
         )
 

@@ -16,6 +16,7 @@ export default function CustomerReg() {
       .required(),
     email: Yup.string().required(),
     password: Yup.string().required(),
+    type: Yup.string().required(),
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
@@ -28,6 +29,7 @@ export default function CustomerReg() {
       contact_number: values.phone,
       email: values.email,
       hash_password: values.password,
+      type: values.type,
     };
     addCustomer({ customer }).then(() => setSubmitting(false));
   };
@@ -42,6 +44,7 @@ export default function CustomerReg() {
           phone: '',
           email: '',
           password: '',
+          type:'',
         }}
         validationSchema={customerRegSchema}
         onSubmit={handleSubmit}
@@ -78,6 +81,9 @@ export default function CustomerReg() {
               <span>
                 <Field type='password' name='password' placeholder='Password' />
               </span>
+              <span>
+                <Field type='type' name='type' placeholder='Type' />
+              </span>
 
               <Button
                 className='customer--reg--form--submit'
@@ -95,6 +101,7 @@ export default function CustomerReg() {
                 <ErrorMessage name='town' component='div' />
                 <ErrorMessage name='phone' component='div' />
                 <ErrorMessage name='email' component='div' />
+                <ErrorMessage name='type' component='div' />
               </div>
             </Form>
           );

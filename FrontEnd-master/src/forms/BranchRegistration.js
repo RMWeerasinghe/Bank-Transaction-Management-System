@@ -13,7 +13,8 @@ export default function BranchReg() {
       .min(10, 'Phone number must be at least 10 digits')
       .max(12, 'Phone number must be at most 12 digits')
       .required(),
-    email: Yup.string().required,
+    email: Yup.string().required(),
+    branch_code:Yup.string().required(),
     // managerName: Yup.string().required(),
   });
 
@@ -25,6 +26,7 @@ export default function BranchReg() {
       branch_city: values.branch_city,
       contact_number: values.contact_number,
       email: values.email,
+      branch_code: values.branch_code,
       // managerName: values.managerName,
     };
     addBranch({ branch }).then(() => setSubmitting(false));
@@ -38,6 +40,7 @@ export default function BranchReg() {
           branch_city: '',
           contact_number: '',
           email: '',
+          branch_code:'',
           // managerName: '',
         }}
         validationSchema={branchRegSchema}
@@ -71,6 +74,9 @@ export default function BranchReg() {
               <span>
                 <Field type='text' name='email' placeholder='Email' />
               </span>
+              <span>
+                <Field type='text' name='branch_code' placeholder='Branch Code' />
+              </span>
               {/* <span>
                 <Field type='text' name='managerName' placeholder='Manager Name' />
               </span> */}
@@ -90,6 +96,7 @@ export default function BranchReg() {
                     <ErrorMessage name='branch_city' component='div' />
                     <ErrorMessage name='contact_number' component='div' />
                     <ErrorMessage name='email' component='div' />
+                    <ErrorMessage name='branch_code' component='div' />
                     {/* <ErrorMessage name='managerName' component='div' /> */}
                   </div>
                 )}
