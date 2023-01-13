@@ -32,6 +32,7 @@ import LateLoanPayersReg from './forms/LateLoanPayersReportRequest';
 import LateLoanPayersList from './forms/LateLoanPayersReport';
 import TotalTransactionReg from './forms/TotalTransactionreportRequest';
 import TotalTransactionsList from './forms/TotalTransactionReport';
+import OnlineLoanCustomerReg from './forms/OnlineLoanRegistration';
 function App() {
   return (
     <div className="App"> 
@@ -42,6 +43,7 @@ function App() {
             <Route exact path = '/EmployeePortal' element = {<EmployeeHome/>}/>
               <Route path = 'currAcc-Reg' element= {<CurrAccountReg/>}/>
               <Route path = 'savAcc-Reg' element= {<SavAccountReg/>}/>
+              <Route path = 'loan-apply' element= {<LoanApply/>}/>
               <Route path = 'Loan-Reg' element= {<LoanCustomerReg/>}/>
               <Route path = 'FD-Reg' element= {<FDCustomerReg/>}/>
               <Route path = 'ATM-Tran' element= {<ATMTransactionReg/>}/>
@@ -60,9 +62,9 @@ function App() {
           <Route path = '/CustomerPortal'>
             <Route exact path = '/CustomerPortal' element = {<CustomerHome/>}/>
             <Route path = 'Online-Tran' element= {<OnlineTransactionReg/>}/>
-            <Route path = 'loan-apply' element= {<LoanApply/>}/>
             <Route path = 'portfolio' element = {<CustomerPortfolio/>} />
             <Route path = 'user' element = {<CustomerUser/>} />
+            <Route path = 'online-loan' element = {<OnlineLoanCustomerReg/>} />
           </Route>
           
           <Route path = '/branchManagerPortal'>

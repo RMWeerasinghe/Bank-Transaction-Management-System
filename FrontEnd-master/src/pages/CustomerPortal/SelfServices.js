@@ -13,9 +13,9 @@ export default function SelfServices() {
             <a href='customerPortal/user'>User</a>
         </div>
         <div>
-            <a href='customerPortal/loan-apply'>Loan Apply</a>
+            <a href='customerPortal/online-loan'>Online Loan Registration</a>
         </div>
-      
+
 
     </div>
   );

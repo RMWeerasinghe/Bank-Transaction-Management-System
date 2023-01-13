@@ -12,10 +12,10 @@ export default function ChildCustomerReg() {
     // age: Yup.number().required(),
     gender: Yup.string().required(),
     nationality: Yup.string().required(),
-    guardian_first_name: Yup.string().required,
-    guardian_middle_name: Yup.string().required,
-    guardian_last_name: Yup.string().required,
-    guardian_NIC: Yup.string().required,
+    guardian_first_name: Yup.string().required(),
+    guardian_middle_name: Yup.string().required(),
+    guardian_last_name: Yup.string().required(),
+    guardian_NIC: Yup.string().required(),
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
