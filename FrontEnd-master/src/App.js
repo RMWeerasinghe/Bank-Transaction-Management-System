@@ -1,4 +1,4 @@
-import background from './photo_1.jpg';
+
 import './App.css';
 import HomePage from './pages/HomePage';
 import CustomerReg from './forms/CustomerRegistration';
