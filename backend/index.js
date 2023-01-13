@@ -23,6 +23,7 @@ const orgRoutes=require('./app/routes/organization_customer.route.js');
 const savAccTypeRoutes=require('./app/routes/savings_acc_type.route.js');
 const savingsAccRoutes=require('./app/routes/savings_account.route');
 const totTransactionRoutes=require('./app/routes/total_transaction.route.js');
+const customerAccRoutes=require('./app/routes/customer_account.routes.js');
 
 const customerLoginRoutes=require("./app/routes/customer_login.route.js");
 const employeeLoginRoutes=require("./app/routes/employee_login.route.js")
@@ -62,6 +63,7 @@ app.use ("api/organization_customer",orgRoutes);
 app.use("/api/savings_account",savingsAccRoutes);
 app.use("/api/savings_acc_type",savAccTypeRoutes);
 app.use("/api/total_transaction",totTransactionRoutes);
+app.use("/api/customer_info",customerAccRoutes);
 
 app.use("/api/customer_login", customerLoginRoutes);
 app.use("/api/employee_login", employeeLoginRoutes);
