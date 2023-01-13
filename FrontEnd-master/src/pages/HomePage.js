@@ -4,11 +4,11 @@ export default function CustomerHandling() {
   return (
     <div>
       <div>
-        <a href='customerPortal'>Customer Portal</a>
+        <a href='customerPortal/customer-login'>Customer Portal</a>
       </div>
 
       <div>
-        <a href='employeePortal'>Employee Portal</a>
+        <a href='employeePortal/employee-login'>Employee Portal</a>
       </div>
 
       <div>

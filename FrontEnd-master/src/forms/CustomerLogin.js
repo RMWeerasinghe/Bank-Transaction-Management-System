@@ -1,8 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button } from 'antd';
-
+import { useNavigate } from 'react-router-dom';
 //import the function from '../api/Authentication';
-// import { addATM } from '../api/ATMs';
+import { loginCustomer } from '../api/AuthCutomer';
 import * as Yup from 'yup';
 // Use this instead https://github.com/jannikbuschke/formik-antd
 export default function CustomerLoginReg() {
@@ -11,6 +11,7 @@ export default function CustomerLoginReg() {
     password: Yup.string().required(),
   });
 
+  const navigate = useNavigate();
   const handleSubmit = (values, { setSubmitting }) => {
     setSubmitting(true);
     const customer_login = {
@@ -18,7 +19,14 @@ export default function CustomerLoginReg() {
       password: values.password,
     };
     // need to add the function 
-    addATM({ customer_login }).then(() => setSubmitting(false));
+    loginCustomer({ customer_login }).then(() => {
+      setSubmitting(false)
+      navigate('/customerPortal')
+    }).catch(() => {
+      setSubmitting(false)
+      navigate('/customerPortal')
+    }
+    );
   };
   return (
     <div>
@@ -35,7 +43,7 @@ export default function CustomerLoginReg() {
             borderColor: 'red',
           };
           return (
-            <Form className='atm--reg--form'>
+            <Form className='customer--login--form'>
               <h1>Customer Login</h1>
               <span>
                 <Field type='text' name='customer_id' placeholder='Customer ID' />
@@ -54,7 +62,7 @@ export default function CustomerLoginReg() {
               </Button>
               {Object.values(props.touched).includes(true) &&
                 Object.values(props.errors).length !== 0 && (
-                  <div className='atm--reg--form--errors'>
+                  <div className='customer--reg--form--errors'>
                     <ErrorMessage name='customer_id' component='div' />
                     <ErrorMessage name='password' component='div' />
                   </div>
