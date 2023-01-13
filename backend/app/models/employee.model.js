@@ -4,7 +4,8 @@ const bcrypt=require("bcrypt")
 class Employee{
     static salt=8
 
-    constructor(emp_name,branch_code,contact_number,email,address_no,street,town,password,salary) {
+    constructor(employee_id,emp_name,branch_code,contact_number,email,address_no,street,town,password,salary) {
+        this.employee_id=employee_id;
         this.emp_name=emp_name;
         this.branch_code=branch_code;
         this.contact_number=contact_number;
@@ -25,7 +26,7 @@ class Employee{
 
     static getDetailsByCode(employee_id,response){
         pool.query(
-            "SELECT employee_id,emp_name,branch_code,contact_number,email,address_no,street,town,salary FROM employee WHERE employee_id=? ",
+            "SELECT * FROM employee WHERE employee_id=? ",
             [employee_id],
             response
         )
@@ -33,9 +34,9 @@ class Employee{
 
     createNewEmployee(response) {
         pool.query(
-            `INSERT INTO employee(emp_name,branch_code,contact_number,email,address_no,street,town,hash_password,salary)
-            VALUES (?,?,?,?,?,?,?,?,?)`,
-            [this.emp_name,this.branch_code,this.contact_number,this.email,this.address_no,this.street,this.town,this.hash_password,this.salary],
+            `INSERT INTO employee
+            VALUES (?,?,?,?,?,?,?,?,?,?)`,
+            [this.employee_id,this.emp_name,this.branch_code,this.contact_number,this.email,this.address_no,this.street,this.town,this.hash_password,this.salary],
             response
         )
 
