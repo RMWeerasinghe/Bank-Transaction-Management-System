@@ -38,7 +38,7 @@ class EmployeeController {
 
         const { employee_id,emp_name,branch_code,contact_number,email,address_no,street,town,hash_password,salary } = req.body
 
-        const new_employee = new Branch(employee_id,emp_name,branch_code,contact_number,email,address_no,street,town,hash_password,salary)
+        const new_employee = new Employee(employee_id,emp_name,branch_code,contact_number,email,address_no,street,town,hash_password,salary)
 
         new_employee.createNewEmployee((err, result) => {
 

@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button } from 'antd';
-import { getLateLoanPayers } from '../api/LoanInstallment';
+import { sendBranchCode } from '../api/LateInstallment';
 import * as Yup from 'yup';
 // Use this instead https://github.com/jannikbuschke/formik-antd
 export default function LateLoanPayersReg() {
@@ -10,10 +10,10 @@ export default function LateLoanPayersReg() {
 
   const handleSubmit = (values, { setSubmitting }) => {
     setSubmitting(true);
-    const LatePayer = {
+    const branch = {
       branch_code: values.branch_code,
     };
-    getLateLoanPayers({ LatePayer }).then(() => setSubmitting(false));
+    sendBranchCode({ branch }).then(() => setSubmitting(false));
   };
   return (
     <div>
