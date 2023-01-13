@@ -6,14 +6,14 @@ import * as Yup from 'yup';
 export default function ATMReg() {
   const atmRegSchema = Yup.object().shape({
     town: Yup.string().required(),
-    branchCode: Yup.string().required(),
+    branch_code: Yup.string().required(),
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
     setSubmitting(true);
     const atm = {
       town: values.town,
-      branchCode: values.branchCode,
+      branch_code: values.branch_code,
     };
     addATM({ atm }).then(() => setSubmitting(false));
   };
@@ -22,7 +22,7 @@ export default function ATMReg() {
       <Formik
         initialValues={{
           town: '',
-          branchCode: '',
+          branch_code: '',
         }}
         validationSchema={atmRegSchema}
         onSubmit={handleSubmit}

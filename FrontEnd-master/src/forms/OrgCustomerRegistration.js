@@ -6,14 +6,14 @@ import * as Yup from 'yup';
 export default function OrgCustomerReg() {
   const orgCustomerRegSchema = Yup.object().shape({
     name: Yup.string().required(),
-    regNo: Yup.string().required,
+    reg_no: Yup.string().required(),
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
     setSubmitting(true);
     const orgCustomer = {
       name: values.name,
-      reg_no: values.regNo,
+      reg_no: values.reg_no,
     };
     addOrgCustomer({ orgCustomer }).then(() => setSubmitting(false));
   };
@@ -22,7 +22,7 @@ export default function OrgCustomerReg() {
       <Formik
         initialValues={{
           name: '',
-          regNo: '',
+          reg_no: '',
         }}
         validationSchema={orgCustomerRegSchema}
         onSubmit={handleSubmit}
@@ -46,7 +46,7 @@ export default function OrgCustomerReg() {
                 />
               </span>
               <span>
-                <Field type='text' name='regNo' placeholder='Organization Registration Number' />
+                <Field type='text' name='reg_no' placeholder='Organization Registration Number' />
               </span>
     
               <Button
@@ -61,7 +61,7 @@ export default function OrgCustomerReg() {
                 Object.values(props.errors).length !== 0 && (
                   <div className='orgCustomer--reg--form--errors'>
                     <ErrorMessage name='name' component='div' />
-                    <ErrorMessage name='regNo' component='div' />
+                    <ErrorMessage name='reg_no' component='div' />
                   </div>
                 )}
             </Form>

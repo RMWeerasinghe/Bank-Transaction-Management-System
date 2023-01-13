@@ -1,7 +1,7 @@
 import React from 'react';
 //create a customer portfolio api
 // need to change the below line , line 22, line 41
-import { getPortfolio } from '../api/customer_info';
+import { getPortfolio } from '../api/Portfolio';
 import { Table } from 'antd';
 
 export default function CustomerAccsDetails() {
@@ -19,7 +19,7 @@ export default function CustomerAccsDetails() {
     },
   ];
 
-  const [customer, setCustomer] = React.useState();
+  const [customer_info, setCustomer] = React.useState();
 
   // customer list is loaded on the first component render
   React.useEffect(() => loadCustomerAccsDetails(), []);
