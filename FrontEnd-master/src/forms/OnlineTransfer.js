@@ -8,7 +8,7 @@ export default function OnlineTransactionReg() {
     from_acc: Yup.string().required(),
     to_acc: Yup.string().required(),
     amount: Yup.number().required(),
-    tran_date: Yup.date().required(),
+    // tran_date: Yup.date().required(),
     
   });
 
@@ -18,7 +18,7 @@ export default function OnlineTransactionReg() {
       from_acc: values.from_acc,
       to_acc: values.to_acc,
       amount: values.amount,
-      transaction_time: values.date,
+      // transaction_time: values.date,
     };
     addOnlineTransaction({ onlineTransaction }).then(() => setSubmitting(false));
   };
@@ -30,7 +30,7 @@ export default function OnlineTransactionReg() {
           from_acc: '',
           to_acc: '',
           amount: '',
-          tran_date: '',
+          // tran_date: '',
         }}
         validationSchema={OnlineTransactionRegSchema}
         onSubmit={handleSubmit}
@@ -50,9 +50,9 @@ export default function OnlineTransactionReg() {
               <span>
                 <Field type='text' name='amount' placeholder='Amount' />
               </span>
-              <span>
+              {/* <span>
                 <Field type='date' name='tran_date' placeholder='date' />
-              </span>
+              </span> */}
 
               <Button
                 className='online--tran--form--submit'
@@ -68,7 +68,7 @@ export default function OnlineTransactionReg() {
                     <ErrorMessage name='from_acc' component='div' />
                     <ErrorMessage name='to_acc' component='div' />
                     <ErrorMessage name='amount' component='div' />
-                    <ErrorMessage name='tran_date' component='div' />
+                    {/* <ErrorMessage name='tran_date' component='div' /> */}
                   </div>
                 )}
             </Form>
