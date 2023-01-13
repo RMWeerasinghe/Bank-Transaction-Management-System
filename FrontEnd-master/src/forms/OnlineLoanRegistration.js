@@ -5,17 +5,19 @@ import * as Yup from 'yup';
 // Use this instead https://github.com/jannikbuschke/formik-antd
 export default function OnlineLoanCustomerReg() {
   const OnlineLoancustomerRegSchema = Yup.object().shape({
-    application_id: Yup.string().required(),
+    // application_id: Yup.string().required(),
+    branch_code: Yup.string().required(),
     customer_id: Yup.date().required(),
-    amount: Yup.int().required(),
-    period: Yup.string(),
-    fd_no: Yup.string().required(),
+    amount: Yup.number().required(),
+    period_in_months: Yup.string().required(),
+    fd_id: Yup.string().required(),
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
     setSubmitting(true);
     const OnlineLoancustomer = {
-      application_id: values.application_id,
+      // application_id: values.application_id,
+      branch_code:values.branch_code,
       customer_id: values.customer_id,
       amount: values.amount,
       period_in_months: values.period,
@@ -27,11 +29,11 @@ export default function OnlineLoanCustomerReg() {
     <div>
       <Formik
         initialValues={{
-          application_id: '',
+          branch_code:'',
           customer_id: '',
           amount: '',
-          period: '',
-          fd_no: '',
+          period_in_months: '',
+          fd_id: '',
         }}
         validationSchema={OnlineLoancustomerRegSchema}
         onSubmit={handleSubmit}
@@ -42,30 +44,21 @@ export default function OnlineLoanCustomerReg() {
           };
           return (
             <Form className='OnlineLoancustomer--reg--form'>
+              <h1>Online Loan Registration</h1>
               <span>
-                <Field
-                  type='text'
-                  name='application_id'
-                  placeholder='application_id'
-                  //check
-                  style={
-                    props.touched.name && props.errors.name
-                      ? errorInputStyle
-                      : null
-                  }
-                />
+                <Field type='text' name='branch_code' placeholder='Branch Code' />
               </span>
               <span>
-                <Field type='text' name='customer_id' placeholder='customer_id' />
+                <Field type='text' name='customer_id' placeholder='Customer ID' />
               </span>
               <span>
-                <Field type='int' name='amount' placeholder='amount' />
+                <Field type='number' name='amount' placeholder='Amount' />
               </span>
               <span>
-                <Field type='int' name='period' placeholder='period' />
+                <Field type='number' name='period_in_months' placeholder='Period' />
               </span>
               <span>
-                <Field type='text' name='fd_no' placeholder='fd_no' />
+                <Field type='text' name='fd_id' placeholder='FD_ID' />
               </span>
 
               <Button
@@ -79,11 +72,12 @@ export default function OnlineLoanCustomerReg() {
               {Object.values(props.touched).includes(true) &&
                 Object.values(props.errors).length !== 0 && (
                   <div className='OnlineLoancustomer--reg--form--errors'>
-                    <ErrorMessage name='application_no' component='div' />
+                    {/* <ErrorMessage name='application_no' component='div' /> */}
+                    <ErrorMessage name='branch_code' component='div' />
                     <ErrorMessage name='customer_id' component='div' />
                     <ErrorMessage name='amount' component='div' />
-                    <ErrorMessage name='period' component='div' />
-                    <ErrorMessage name='fd_no' component='div' />
+                    <ErrorMessage name='period_in_months' component='div' />
+                    <ErrorMessage name='fd_id' component='div' />
                   </div>
                 )}
             </Form>

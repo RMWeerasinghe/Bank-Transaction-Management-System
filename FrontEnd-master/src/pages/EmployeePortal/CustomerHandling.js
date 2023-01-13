@@ -46,6 +46,9 @@ export default function CustomerHandling() {
       <div>
         <a href='employeePortal/savAcc-Reg'>Savings Account Registration</a>
       </div>
+      <div>
+        <a href='employeePortal/loan-apply'>Loan Apply</a>
+      </div>
       
       <div>
         <a href='employeePortal/Loan-Reg'>Loan Registration</a>
