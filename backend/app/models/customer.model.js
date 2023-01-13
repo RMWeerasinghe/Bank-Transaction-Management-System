@@ -16,7 +16,7 @@ class Customer{
     }
 
     static  getAllCustomers(response){
-        console.log("asd;las,,d;lamsdlkmalskmd");
+
         pool.query(
             "SELECT customer_id,contact_number,email,type,address_no,street,town FROM customer",
             response

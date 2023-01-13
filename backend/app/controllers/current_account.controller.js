@@ -28,7 +28,7 @@ class CurrentAccountController {
   }
 
   static async createNewCurrentAccount(req, res) {
-    const { account_no, branch_code, balance, customer_id } = req.body;
+    const { account_no, branch_code, balance, customer_id } = req.body.currAcc;
 
     const new_current_account = new CurrentAccount(
       account_no,

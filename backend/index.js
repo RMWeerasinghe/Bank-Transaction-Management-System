@@ -62,7 +62,7 @@ app.use("/api/total_transaction",totTransactionRoutes);
 
 app.use("/api/customer_login", customerLoginRoutes);
 app.use("/api/employee_login", employeeLoginRoutes);
-//app.use(validateToken);
+app.use(validateToken);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}.`);

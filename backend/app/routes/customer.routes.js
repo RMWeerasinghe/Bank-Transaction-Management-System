@@ -1,6 +1,6 @@
 const express=require("express");
 const CustomerController = require("../controllers/Customer.controller.js");
-
+const auth =require('../middleware/auth.middleware')
 const router = express.Router()
 
 router.route("/")

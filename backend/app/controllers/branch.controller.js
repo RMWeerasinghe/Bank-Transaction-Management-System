@@ -35,12 +35,7 @@ class BranchController {
 
     static async createNewBranch(req, res) {
 
-        const branch_code=req.body.branch_code;
-        const branch_name=req.body.branch_name;
-        const branch_city=req.body.branch_city;
-        const contact_number=req.body.contact_number;
-        const email = req.body.email;
-
+        const {branch_code,branch_name,branch_city,contact_number,email} = req.body.branch
 
         const new_branch = new Branch(branch_code,branch_name,branch_city,contact_number,email)
 

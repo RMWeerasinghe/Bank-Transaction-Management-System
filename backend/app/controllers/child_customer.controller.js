@@ -40,7 +40,7 @@ class ChildCustomerController {
       guardian_middle_name,
       guardian_last_name,
       guardian_NIC
-    } = req.body;
+    } = req.body.childCustomer;
 
     const new_child_customer = new ChildCustomer(
       customer_id,

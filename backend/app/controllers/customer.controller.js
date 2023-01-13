@@ -6,7 +6,7 @@ class CustomerController {
 
         console.log(req);
         Customer.getAllCustomers((err, result) => {
-            console.log({result, err});
+
             if (err) {
                 return res.status(500)
                     .send({ error: "Something went wrong" })

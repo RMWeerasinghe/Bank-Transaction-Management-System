@@ -30,7 +30,7 @@ class ATMTransactionController {
   }
 
   static async createNewTransaction(req, res) {
-    const { transaction_id,account_no,atm_id, amount, transaction_time, type } = req.body;
+    const { transaction_id,account_no,atm_id, amount, transaction_time, type } = req.body.atmtransaction;
 
     const new_transaction = new ATMTransaction(transaction_id,account_no,atm_id, amount, transaction_time, type);
 

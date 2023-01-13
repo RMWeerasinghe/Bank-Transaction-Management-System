@@ -35,7 +35,7 @@ class Individual_customerController {
 
     static async createNewIndividual_customer(req, res) {
 
-        const { customer_id,NIC,first_name,middle_name,last_name,date_of_birth,gender,nationality } = req.body
+        const { customer_id,NIC,first_name,middle_name,last_name,date_of_birth,gender,nationality } = req.body.indivCustomer
 
         const new_individual_customer = new Individual_customer(customer_id,NIC,first_name,middle_name,last_name,date_of_birth,gender,nationality)
 
