@@ -1,9 +1,12 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
-import { getLateLoanPayers} from '../api/LateInstallment';
+import { getLateLoanPayers } from '../api/LateInstallment';
 import { Table } from 'antd';
 
 export default function LateLoanPayersList() {
+  const { branchID } = useParams();
+
   const columns = [
     {
       title: 'Branch Code',
@@ -33,7 +36,7 @@ export default function LateLoanPayersList() {
   React.useEffect(() => loadLateLoanPayersList(), []);
 
   function loadLateLoanPayersList() {
-    getLateLoanPayers()
+    getLateLoanPayers(branchID)
       .then((data) => {
         setlate_installment(data);
       })

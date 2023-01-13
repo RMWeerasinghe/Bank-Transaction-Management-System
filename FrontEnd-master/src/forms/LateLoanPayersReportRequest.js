@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button } from 'antd';
-import { sendBranchCode } from '../api/LateInstallment';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 // Use this instead https://github.com/jannikbuschke/formik-antd
 export default function LateLoanPayersReg() {
@@ -8,12 +8,11 @@ export default function LateLoanPayersReg() {
     branch_code: Yup.string().required(),
   });
 
+  const navigate = useNavigate();
+
   const handleSubmit = (values, { setSubmitting }) => {
     setSubmitting(true);
-    const branch = {
-      branch_code: values.branch_code,
-    };
-    sendBranchCode({ branch }).then(() => setSubmitting(false));
+    navigate('/branchManagerPortal/lateloanReport/' + values.branch_code);
   };
   return (
     <div>
@@ -32,7 +31,11 @@ export default function LateLoanPayersReg() {
             <Form className='lateLoanPayer--reg--form'>
               <h1>Late Loan Payers Request</h1>
               <span>
-                <Field type='text' name='branch_code' placeholder='branch_code' />
+                <Field
+                  type='text'
+                  name='branch_code'
+                  placeholder='branch_code'
+                />
               </span>
               <Button
                 className='lateLoanPayer--reg--form--submit'

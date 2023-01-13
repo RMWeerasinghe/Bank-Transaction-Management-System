@@ -1,9 +1,11 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 import { getTotalTransactions} from '../api/TotalTransaction';
 import { Table } from 'antd';
 
 export default function TotalTransactionsList() {
+  const { branchID } = useParams();
   const columns = [
     {
       title: 'Transaction ID',
@@ -43,7 +45,7 @@ export default function TotalTransactionsList() {
   React.useEffect(() => loadTotalTransactionsList(), []);
 
   function loadTotalTransactionsList() {
-    getTotalTransactions()
+    getTotalTransactions(branchID)
       .then((data) => {
         settotal_transaction(data);
       })

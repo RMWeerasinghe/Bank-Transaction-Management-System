@@ -65,12 +65,12 @@ function App() {
             <Route path = 'user' element = {<CustomerUser/>} />
           </Route>
           
-          <Route path = '/BranchManagerPortal'>
-            <Route exact path = '/BranchManagerPortal' element = {<BranchManagerHome/>}/>
-            <Route path = 'LateLoan-Req' element= {<LateLoanPayersReg/>}/>
-            <Route path = 'LateLoan-Report' element= {<LateLoanPayersList/>}/>
-            <Route path = 'TotalTran-Req' element = {<TotalTransactionReg/>} />
-            <Route path = 'Totaltran-Report' element = {<TotalTransactionsList/>} /> 
+          <Route path = '/branchManagerPortal'>
+            <Route exact path = '/branchManagerPortal' element = {<BranchManagerHome/>}/>
+            <Route path = 'lateloanRequest' element= {<LateLoanPayersReg/>}/>
+            <Route path = 'lateloanReport/:branchID' element= {<LateLoanPayersList/>}/>
+            <Route path = 'totaltransactionRequest' element = {<TotalTransactionReg/>} />
+            <Route path = 'totaltransactionReport/:branchID' element = {<TotalTransactionsList/>} /> 
           </Route>
           
           {/*for homepage */}

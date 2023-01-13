@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button } from 'antd';
-import { sendBranchCode } from '../api/TotalTransaction';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 // Use this instead https://github.com/jannikbuschke/formik-antd
 export default function TotalTransactionReg() {
@@ -8,12 +8,11 @@ export default function TotalTransactionReg() {
     branch_code: Yup.string().required(),
   });
 
+  const navigate = useNavigate();
+
   const handleSubmit = (values, { setSubmitting }) => {
     setSubmitting(true);
-    const branch_ = {
-      branch_code: values.branch_code,
-    };
-    sendBranchCode({ branch_ }).then(() => setSubmitting(false));
+    navigate('/branchManagerPortal/totaltransactionReport/' + values.branch_code);
   };
   return (
     <div>
