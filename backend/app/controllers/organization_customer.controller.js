@@ -34,9 +34,10 @@ class OrgCustomerController {
     }
 
     static async createNewOrgCustomer(req, res) {
+        console.log("backend create")
 
         const {name,reg_no}=req.body.orgCustomer
-
+        console.log(reqq.body.orgCustomer)
 
         const new_customer = new OrgCustomer(name,reg_no)
 

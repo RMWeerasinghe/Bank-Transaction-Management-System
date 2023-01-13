@@ -13,6 +13,7 @@ export async function getEmployees() {
 }
 
 export async function addEmployee(newEmployee) {
+  console.log("front end add employee")
   try {
     const response = await axios.post(`${HOST}/employee`, newEmployee);
     console.log(response);

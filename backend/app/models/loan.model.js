@@ -3,8 +3,8 @@ const pool =require("../config/database.js");
 class Loan{
 
 
-    constructor(loan_no,branch_code,customer_id,date_issued,period,amount,interest_rate) {
-        this.loan_no=loan_no;
+    constructor(branch_code,customer_id,date_issued,period,amount,interest_rate) {
+
         this.branch_code=branch_code;
         this.customer_id=customer_id;
         this.date_issued=date_issued;
@@ -30,9 +30,9 @@ class Loan{
 
     createNewLoan(response) {
         pool.query(
-            `INSERT INTO loan
-            VALUES (?,?,?,?,?,?,?,)`,
-            [this.loan_no,this.branch_code,this.customer_id,this.date_issued,this.period,this.amount,this.interest_rate],
+            `INSERT INTO loan(branch_code,customer_id,date_issued,period,amount,interest_rate)
+            VALUES (?,?,?,?,?,?)`,
+            [this.branch_code,this.customer_id,this.date_issued,this.period,this.amount,this.interest_rate],
             response
         )
 
