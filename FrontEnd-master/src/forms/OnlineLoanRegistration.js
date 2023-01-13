@@ -18,8 +18,8 @@ export default function OnlineLoanCustomerReg() {
       application_id: values.application_id,
       customer_id: values.customer_id,
       amount: values.amount,
-      period: values.period,
-      fd_no: values.fd_no,
+      period_in_months: values.period,
+      fd_id: values.fd_no,
     };
     addOnlineLoanCustomer({ OnlineLoancustomer }).then(() => setSubmitting(false));
   };

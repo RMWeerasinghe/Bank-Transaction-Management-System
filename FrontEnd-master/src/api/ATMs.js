@@ -3,7 +3,7 @@ import { HOST } from './config';
 
 export async function getATMs() {
   try {
-    const response = await axios.post(`${HOST}/atm`);
+    const response = await axios.get(`${HOST}/atm`);
     return response.data;
   } catch (err) {
     console.log(err);

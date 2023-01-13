@@ -4,7 +4,7 @@ import { getDate } from '../utilities/dateFormat';
 
 export async function getOnlinetransactions() {
   try {
-    const response = await axios.post(`${HOST}/online_transaction`);
+    const response = await axios.get(`${HOST}/online_transaction`);
     // change full date string to ISO format, yyyy-MM-DD
     for (let key in response.data) {
       const newDate = getDate(response.data[key].date);
@@ -19,7 +19,7 @@ export async function getOnlinetransactions() {
 
 export async function addOnlineTransaction(newTransaction) {
   try {
-    const response = await axios.post(`${HOST}/online_transaction/add`, newTransaction);
+    const response = await axios.post(`${HOST}/online_transaction`, newTransaction);
     console.log(response);
   } catch (err) {
     console.log(err);

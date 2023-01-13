@@ -13,7 +13,7 @@ export default function OrgCustomerReg() {
     setSubmitting(true);
     const orgCustomer = {
       name: values.name,
-      regNo: values.regNo,
+      reg_no: values.regNo,
     };
     addOrgCustomer({ orgCustomer }).then(() => setSubmitting(false));
   };

@@ -3,7 +3,7 @@ import { HOST } from './config';
 
 export async function getCurrAccounts() {
   try {
-    const response = await axios.post(`${HOST}/current_account`);
+    const response = await axios.get(`${HOST}/current_account`);
     return response.data;
   } catch (err) {
     console.log(err);

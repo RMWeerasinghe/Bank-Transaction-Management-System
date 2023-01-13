@@ -4,7 +4,7 @@ import { HOST } from './config';
 
 export async function getOrgCustomers() {
   try {
-    const response = await axios.post(`${HOST}/organization_customer`);
+    const response = await axios.get(`${HOST}/organization_customer`);
     return response.data;
   } catch (err) {
     console.log(err);
@@ -14,7 +14,7 @@ export async function getOrgCustomers() {
 
 export async function addOrgCustomer(newOrgCustomer) {
   try {
-    const response = await axios.post(`${HOST}/organization_customer/add`, newOrgCustomer);
+    const response = await axios.post(`${HOST}/organization_customer`, newOrgCustomer);
     console.log(response);
   } catch (err) {
     console.log(err);

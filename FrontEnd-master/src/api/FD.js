@@ -4,7 +4,7 @@ import { getDate } from '../utilities/dateFormat';
 
 export async function getFDCustomers() {
   try {
-    const response = await axios.post(`${HOST}/fixed_deposit`);
+    const response = await axios.get(`${HOST}/fixed_deposit`);
     // change full date string to ISO format, yyyy-MM-DD
     //there are two dates and consider it and change if necessary
     for (let key in response.data) {

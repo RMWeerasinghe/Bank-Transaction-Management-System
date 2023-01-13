@@ -17,11 +17,11 @@ export default function IndividualCustomerReg() {
   const handleSubmit = (values, { setSubmitting }) => {
     setSubmitting(true);
     const indivCustomer = {
-      firstName: values.firstName,
-      middleName: values.middleName,
-      lastName: values.lastName,
-      dateofbirth: values.dob,
-      nic: values.nic,
+      first_name: values.firstName,
+      middle_name: values.middleName,
+      last_name: values.lastName,
+      date_of_birth: values.dob,
+      NIC: values.nic,
       gender: values.gender,
       nationality: values.nationality,
     };

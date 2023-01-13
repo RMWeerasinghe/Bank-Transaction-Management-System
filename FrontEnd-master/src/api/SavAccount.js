@@ -4,7 +4,7 @@ import { HOST } from './config';
 
 export async function getSavAccounts() {
   try {
-    const response = await axios.post(`${HOST}/`);
+    const response = await axios.get(`${HOST}/`);
     return response.data;
   } catch (err) {
     console.log(err);
@@ -14,7 +14,7 @@ export async function getSavAccounts() {
 
 export async function addSavAccount(newAccount) {
   try {
-    const response = await axios.post(`${HOST}/savings_account/add`, newAccount);
+    const response = await axios.post(`${HOST}/savings_account`, newAccount);
     console.log(response);
   } catch (err) {
     console.log(err);

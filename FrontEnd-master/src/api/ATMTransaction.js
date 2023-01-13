@@ -4,7 +4,7 @@ import { getDate } from '../utilities/dateFormat';
 
 export async function getATMTransactions() {
   try {
-    const response = await axios.post(`${HOST}/atm_transaction`);
+    const response = await axios.get(`${HOST}/atm_transaction`);
     // change full date string to ISO format, yyyy-MM-DD
     for (let key in response.data) {
       const newDate = getDate(response.data[key].tran_date);

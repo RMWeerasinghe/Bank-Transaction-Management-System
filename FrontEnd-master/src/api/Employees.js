@@ -4,7 +4,7 @@ import { HOST } from './config';
 
 export async function getEmployees() {
   try {
-    const response = await axios.post(`${HOST}/employee`);
+    const response = await axios.get(`${HOST}/employee`);
     return response.data;
   } catch (err) {
     console.log(err);

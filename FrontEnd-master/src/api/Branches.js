@@ -3,7 +3,7 @@ import { HOST } from './config';
 
 export async function getBranches() {
   try {
-    const response = await axios.post(`${HOST}/branch`);
+    const response = await axios.get(`${HOST}/branch`);
     return response.data;
   } catch (err) {
     console.log(err);
