@@ -1,8 +1,7 @@
 const pool = require("../config/database.js");
 
 class CurrentAccount {
-  constructor(account_no, branch_code, balance, customer_id) {
-    this.account_no = account_no;
+  constructor(branch_code, balance, customer_id) {
     this.branch_code = branch_code;
     this.balance = balance;
     this.customer_id = customer_id;
@@ -22,9 +21,9 @@ class CurrentAccount {
 
   createNewCurrentAccount(response) {
     pool.query(
-      `INSERT INTO current_account
-      VALUES (?,?,?,?)`,
-      [this.account_no, this.branch_code, this.balance, this.customer_id],
+      `INSERT INTO current_account(branch_code,balance,customer_id)
+      VALUES (?,?,?)`,
+      [this.branch_code, this.balance, this.customer_id],
       response
     );
   }

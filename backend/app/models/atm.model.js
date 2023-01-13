@@ -1,8 +1,8 @@
 const pool = require("../config/database.js");
 
 class ATM {
-  constructor(atm_id, town, branch_code) {
-    this.atm_id = atm_id;
+  constructor(town, branch_code) {
+
     this.town = town;
     this.branch_code = branch_code;
   }
@@ -21,9 +21,9 @@ class ATM {
 
   createNewATM(response) {
     pool.query(
-      `INSERT INTO atm
-            VALUES (?,?,?)`,
-      [this.atm_id, this.town, this.branch_code],
+      `INSERT INTO atm(town,branch_code)
+            VALUES (?,?)`,
+      [ this.town, this.branch_code],
       response
     );
   }

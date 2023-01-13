@@ -34,13 +34,14 @@ class Loan_applicationController {
     }
 
     static async createNewLoan_application(req, res) {
+        console.log(req.body.LoanApplicant)
 
-        const { application_id,employee_id,branch_code,customer_id,amount,period_in_months } = req.body.Loan_application
+        const { employee_id,branch_code,customer_id,amount,period_in_months,status } = req.body.LoanApplicant
 
-        const new_loan_application = new Loan_application(application_id,employee_id,branch_code,customer_id,amount,period_in_months)
+        const new_loan_application = new Loan_application(employee_id,branch_code,customer_id,amount,period_in_months,status)
 
         new_loan_application.createNewLoan_application((err, result) => {
-
+            console.log(err,result)
             if (err) {
                 return res.status(500)
                     .send({ error: "Something went wrong." })

@@ -28,10 +28,10 @@ class ATMController {
   }
 
   static async createNewATM(req, res) {
-    const { atm_id, town, branch_code } = req.body.atm;
+    const { town, branch_code } = req.body.atm;
 
-    const new_atm = new ATM(atm_id, town, branch_code);
-
+    const new_atm = new ATM(town, branch_code);
+    console.log("Inside create controller")
     new_atm.createNewATM((err, result) => {
       if (err) {
         return res.status(500).send({ error: "Something went wrong." });

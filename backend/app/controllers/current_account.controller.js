@@ -28,10 +28,10 @@ class CurrentAccountController {
   }
 
   static async createNewCurrentAccount(req, res) {
-    const { account_no, branch_code, balance, customer_id } = req.body.currAcc;
+    console.log("inside current acc creator")
+    const {  branch_code, balance, customer_id } = req.body.currAcc;
 
     const new_current_account = new CurrentAccount(
-      account_no,
       branch_code,
       balance,
       customer_id
@@ -39,9 +39,10 @@ class CurrentAccountController {
 
     new_current_account.createNewCurrentAccount((err, result) => {
       if (err) {
+        console.log(err)
         return res.status(500).send({ error: "Something went wrong." });
       }
-
+      console.log(result)
       return res.send(result);
     });
   }

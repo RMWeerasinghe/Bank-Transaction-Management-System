@@ -37,13 +37,13 @@ class ATMTransaction {
     );
   }
   atmTransfer(response){
-    if (this.type=='deposit'){
+    if (this.type==='deposit'){
       pool.query('call debitFromATM(?,?,?)',
           [this.atm_id,this.account_no,this.amount],
           response
       )
     }
-    if (this.type=='withdrawl'){
+    if (this.type==='withdrawl'){
       pool.query('call withdrawFromATM(?,?,?)',
           [this.atm_id,this.account_no,this.amount],
           response)

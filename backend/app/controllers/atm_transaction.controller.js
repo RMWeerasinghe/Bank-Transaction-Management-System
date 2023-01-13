@@ -30,9 +30,9 @@ class ATMTransactionController {
   }
 
   static async createNewTransaction(req, res) {
-    const { transaction_id,account_no,atm_id, amount, transaction_time, type } = req.body.atmtransaction;
+    const { account_no,atm_id, amount,type } = req.body.atmtransaction;
 
-    const new_transaction = new ATMTransaction(transaction_id,account_no,atm_id, amount, transaction_time, type);
+    const new_transaction = new ATMTransaction(account_no,atm_id, amount,type);
 
     new_transaction.createNewTransaction((err, result) => {
       if (err) {
@@ -59,12 +59,13 @@ class ATMTransactionController {
     });
   }
   static async transferATM(req, res) {
-
+    console.log(req.body.atmtransaction)
     const{account_no,atm_id, amount ,type}=req.body.atmtransaction
 
     const new_transaction = new ATMTransaction(account_no,atm_id, amount ,type)
 
     new_transaction.atmTransfer((err,result)=>{
+      console.log(err,result)
       if (err){
         return res.status(500)
             .send({Error:"Something went wrong"})

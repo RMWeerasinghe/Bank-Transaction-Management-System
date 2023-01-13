@@ -4,7 +4,7 @@ const Employee= require("../models/employee.model.js");
 class EmployeeController {
 
     static async getAllEmployees(req, res) {
-
+        console.log("get all")
         Employee.getAllEmployees((err, result) => {
             if (err) {
                 return res.status(500)
@@ -35,6 +35,7 @@ class EmployeeController {
     }
 
     static async createNewEmployee(req, res) {
+        console.log("Create function")
 
         const { employee_id,emp_name,branch_code,contact_number,email,address_no,street,town,hash_password,salary } = req.body.employee
 
