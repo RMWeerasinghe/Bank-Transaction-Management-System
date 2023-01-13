@@ -35,7 +35,7 @@ class OrgCustomerController {
 
     static async createNewOrgCustomer(req, res) {
 
-        const {name,reg_no}=req.body
+        const {name,reg_no}=req.body.orgCustomer
 
 
         const new_customer = new OrgCustomer(name,reg_no)

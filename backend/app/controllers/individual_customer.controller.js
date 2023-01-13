@@ -34,6 +34,7 @@ class Individual_customerController {
     }
 
     static async createNewIndividual_customer(req, res) {
+        console.log(req.body)
 
         const { customer_id,NIC,first_name,middle_name,last_name,date_of_birth,gender,nationality } = req.body.indivCustomer
 
@@ -45,8 +46,9 @@ class Individual_customerController {
                 return res.status(500)
                     .send({ error: "Something went wrong." })
             }
-
+            console.log(result)
             return res.send(result)
+
         })
     }
 

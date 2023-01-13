@@ -16,7 +16,7 @@ class AccountController {
 
     static async getTypeByNo(req, res) {
 
-        const account_no = req.params.no
+        const account_no = req.params.code
 
         Account.getTypeByNo(account_no, (err, result) => {
             if (err) {
@@ -37,7 +37,7 @@ class AccountController {
 
     static async deleteByNo(req, res) {
 
-        const account_no = req.params.no
+        const account_no = req.params.code
 
         Account.deleteByNo(account_no, (err, result) => {
             if (err) {

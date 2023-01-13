@@ -35,7 +35,7 @@ class SavingsAccController {
 
     static async createNewSavingsAcc(req, res) {
 
-        const {branch_code,balance,type,customer_id} = req.body
+        const {branch_code,balance,type,customer_id} = req.body.savAcc
 
 
         const new_account = new Savings(branch_code,balance,type,customer_id)
