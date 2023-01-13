@@ -5,6 +5,7 @@ class Individual_customer{
 
     constructor(customer_id,NIC,first_name,middle_name,last_name,date_of_birth,gender,nationality) {
         this.customer_id=customer_id;
+        this.NIC=NIC;
         this.first_name=first_name;
         this.middle_name=middle_name;
         this.last_name=last_name;
