@@ -12,4 +12,7 @@ router.route("/:code")
     .get(CustomerController.getDetailsByCode)
     .delete(CustomerController.deleteByCode)
     .put(CustomerController.updateContactNo)
+
+router.route("/accounts/:code")
+    .get(CustomerController.getAccountDetails)
 module.exports=router;

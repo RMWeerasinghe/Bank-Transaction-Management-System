@@ -25,7 +25,7 @@ class Customer{
 
     static getDetailsByCode(customer_id,response){
         pool.query(
-            "SELECT * FROM customer WHERE customer_id=? ",
+            "SELECT customer_id,contact_number,email,type,address_no,street,town FROM customer WHERE customer_id=? ",
             [customer_id],
             response
         )
@@ -70,6 +70,14 @@ class Customer{
         pool.query('SELECT * FROM customer where customer_id=?',
             [customer_id],
             response)
+    }
+
+    static getAccountDetails(customer_id,response){
+        pool.query(
+            'SELECT account_no,balance FROM customer_account WHERE customer_id=?',
+            [customer_id],
+            response
+        )
     }
 
 

@@ -34,7 +34,7 @@ class OnlineTransactionController {
     }
 
     static async transferOnline(req, res) {
-        console.log("blaslsl")
+        console.log("online transaction")
         console.log(req.body.onlineTransaction)
         const{from_acc,to_acc,amount}=req.body.onlineTransaction
 

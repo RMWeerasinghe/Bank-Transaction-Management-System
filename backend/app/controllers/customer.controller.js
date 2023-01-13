@@ -99,6 +99,17 @@ class CustomerController {
             return res.send(result)
         })
     }
+    static async getAccountDetails(req,res){
+        const customer_id = req.params.code
+
+        Customer.getAccountDetails(customer_id,(err,result)=>{
+            if (err){
+                return res.status(500)
+                    .send({Error:"something went wrong"})
+            }
+            return res.send(result)
+        })
+    }
 
 }
 module.exports= CustomerController;
