@@ -11,6 +11,9 @@ import SavAccountReg from './forms/SavAccountRegistration';
 import FDCustomerReg from './forms/FDRegistration';
 
 import BranchManagerLoginReg from './forms/BranchManagerLogin';
+import CustomerLoginReg from './forms/CustomerLogin';
+import EmployeeLoginReg from './forms/EmployeeLogin';
+
 
 import ATMTransactionReg from './forms/ATMTransfer';
 import OnlineTransactionReg from './forms/OnlineTransfer';
@@ -71,6 +74,7 @@ function App() {
               <Route path = 'branch-register' element = {<BranchReg/>} />
               <Route path = 'atm-register' element = {<ATMReg/>} />
               <Route path = 'employee-set' element = {<EmployeeSet/>} />
+              <Route path = 'employee-login' element = {<EmployeeLoginReg/>} />
             </Route>
 
           <Route path = '/CustomerPortal'>
@@ -79,6 +83,7 @@ function App() {
             <Route path = 'portfolio' element = {<CustomerPortfolio/>} />
             <Route path = 'user' element = {<CustomerUser/>} />
             <Route path = 'online-loan' element = {<OnlineLoanCustomerReg/>} />
+            <Route path = 'customer-login' element = {<CustomerLoginReg/>} />
           </Route>
           
           <Route path = '/branchManagerPortal'>

@@ -4,10 +4,10 @@ export default function BranchwiseReportGeneration() {
   return (
     <div>
         <div>
-            <a href='branchManagerPortal/lateloanRequest'>Late Loan Payers Report Request</a>
+            <a STYLE="background-color: rgb(0,255,255)" href='branchManagerPortal/lateloanRequest' style={{ color: '#000000' }}>Late Loan Payers Report Request</a>
         </div>
         <div>
-            <a href='branchManagerPortal/totaltransactionRequest'>Total Transaction Report Request</a>
+            <a STYLE="background-color: rgb(0,255,255)" href='branchManagerPortal/totaltransactionRequest' style={{ color: '#000000' }}>Total Transaction Report Request</a>
         </div>
       
 

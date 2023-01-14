@@ -4,16 +4,16 @@ export default function SelfServices() {
   return (
     <div>
         <div>
-            <a href='customerPortal/portfolio'>Portfolio</a>
+            <a STYLE="background-color: rgb(0,255,255)" href='customerPortal/portfolio' style={{ color: '#000000' }}>Portfolio</a>
         </div>
         <div>
-            <a href='customerPortal/Online-Tran'>Online Transaction</a>
+            <a STYLE="background-color: rgb(0,255,255)" href='customerPortal/Online-Tran' style={{ color: '#000000' }}>Online Transaction</a>
         </div>
         <div>
-            <a href='customerPortal/user'>User</a>
+            <a STYLE="background-color: rgb(0,255,255)" href='customerPortal/user' style={{ color: '#000000' }}>User</a>
         </div>
         <div>
-            <a href='customerPortal/online-loan'>Online Loan Registration</a>
+            <a STYLE="background-color: rgb(0,255,255)" href='customerPortal/online-loan' style={{ color: '#000000' }}>Online Loan Registration</a>
         </div>
 
 

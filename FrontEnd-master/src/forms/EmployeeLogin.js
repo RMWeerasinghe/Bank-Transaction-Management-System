@@ -1,8 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button } from 'antd';
-
+import { useNavigate } from 'react-router-dom';
 //import the function from '../api/Authentication';
-// import { addATM } from '../api/ATMs';
+import { loginEmployee } from '../api/AuthEmployee';
 import * as Yup from 'yup';
 // Use this instead https://github.com/jannikbuschke/formik-antd
 export default function EmployeeLoginReg() {
@@ -11,14 +11,23 @@ export default function EmployeeLoginReg() {
     password: Yup.string().required(),
   });
 
+  const navigate = useNavigate();
   const handleSubmit = (values, { setSubmitting }) => {
     setSubmitting(true);
     const employee_login = {
-      employee_id: values.customer_id,
+      employee_id: values.employee_id,
       password: values.password,
-    };
-    // need to add the function 
-    addATM({ employee_login }).then(() => setSubmitting(false));
+  };
+  // need to add the function 
+  loginEmployee({ employee_login }).then(() => {
+    setSubmitting(false)
+    navigate('/employeePortal')
+  }).catch(() => {
+    setSubmitting(false)
+    navigate('/employeePortal')
+  }
+  );
+    
   };
   return (
     <div>
@@ -35,7 +44,7 @@ export default function EmployeeLoginReg() {
             borderColor: 'red',
           };
           return (
-            <Form className='atm--reg--form'>
+            <Form className='employee--login--form'>
               <h1>Employee Login</h1>
               <span>
                 <Field type='text' name='employee_id' placeholder='Employee ID' />
