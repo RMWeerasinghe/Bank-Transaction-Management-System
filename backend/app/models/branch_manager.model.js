@@ -40,7 +40,7 @@ class BranchManager {
 
 
   static findManager(employee_id,response){
-    pool.query('SELECT * FROM branch_manger_info where employee_id=?',
+    pool.query('SELECT * FROM branch_manager_info where employee_id=?',
         [employee_id],
         response)
   }

@@ -5,9 +5,10 @@ const dotenv = require("dotenv")
 
 class ManagerLoginController{
     static async authenticate(req,res){
-        const {employee_id,password}=req.body
+        const {employee_id,password}=req.body.branchmanager_login
 
         Manager.findManager(employee_id,(err,result)=>{
+            console.log(result,err)
             if (err){
                 return res.status(500)
                     .send(err)

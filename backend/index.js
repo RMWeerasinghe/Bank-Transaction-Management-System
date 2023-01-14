@@ -29,7 +29,6 @@ const customerLoginRoutes=require("./app/routes/customer_login.route.js");
 const employeeLoginRoutes=require("./app/routes/employee_login.route.js")
 const managerLoginRoutes=require("./app/routes/branch_manager_login.route.js")
 
-const validateToken = require("./app/middleware/auth.middleware");
 
 
 const app = express();
@@ -65,7 +64,7 @@ app.use("/api/savings_acc_type",savAccTypeRoutes);
 app.use("/api/total_transaction",totTransactionRoutes);
 app.use("/api/customer_info",customerAccRoutes);
 
-app.use("/api/customer_login", customerLoginRoutes);
+app.use("/api/customer_account", customerLoginRoutes);
 app.use("/api/employee_login", employeeLoginRoutes);
 app.use("/api/branch_manager_login", managerLoginRoutes);
 

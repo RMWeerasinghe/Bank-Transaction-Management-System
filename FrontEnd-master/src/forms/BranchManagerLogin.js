@@ -25,7 +25,7 @@ export default function BranchManagerLoginReg() {
       navigate('/branchManagerPortal')
     }).catch(() => {
       setSubmitting(false)
-      navigate('/branchManagerPortal')
+      //navigate('/branchManagerPortal')
     }
     );
   };

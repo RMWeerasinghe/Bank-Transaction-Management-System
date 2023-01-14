@@ -38,6 +38,7 @@ class ATMTransaction {
   }
   atmTransfer(response){
     if (this.type==='deposit'){
+      console.log("deposit")
       pool.query('call debitFromATM(?,?,?)',
           [this.atm_id,this.account_no,this.amount],
           response
