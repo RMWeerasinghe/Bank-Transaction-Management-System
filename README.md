@@ -7,30 +7,29 @@
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies](#technologies)
-- [Installation](#installation)
-- [Usage](#usage)
 - [Contributors](#contributors)
-- [License](#license)
 
 ---
 
 ## Introduction
 
-The **Bank Transaction Management System** is a comprehensive web application developed as a group assignment during semester three. This system is designed to streamline various banking processes and provide a user-friendly interface for both bank employees and customers.
+The **Bank Transaction Management System** is a comprehensive web application developed as a group assignment under CS3043-Database Systems. This system is designed to streamline various banking processes and provide a user-friendly interface for both bank employees, managers and customers.
 
-The core functionality includes managing online transactions, handling online loan applications, updating interest rates for the months, generating transaction reports, and loan installment reports.
+The core functionality includes managing online transactions, handling online loan applications, updating interest rates for the month, and generating transaction reports, and loan instalment reports.
 
 ## Features
 
-- **Online Transactions:** Perform various banking transactions online, including account transfers, bill payments, and more.
+- **Online Transactions:** Perform online transactions from one account to another account.
+
+- - **Account Creation and customer registration:** Create pre-defined types of accounts and register customers with user profiles.
 
 - **Online Loan Applications:** Enable customers to apply for loans online with an easy-to-use application process.
 
-- **Interest Rate Management:** Update and manage interest rates for different accounts and loans on a monthly basis.
+- **Interest Rate Management:** Update and manage interest rates for different accounts and loans on a monthly basis and calculate the loan instalments.
 
 - **Transaction Reports:** Generate detailed transaction reports to track account activity and monitor financial health.
 
-- **Loan Installment Reports:** Create reports that outline the progress of loan repayments, helping both customers and bank employees.
+- **Loan Installment Reports:** Create reports outlining loan repayment progress for managers.
 
 ## Technologies
 
@@ -39,10 +38,12 @@ The core functionality includes managing online transactions, handling online lo
 - **Database:** MySQL
 - **Other Technologies:** HTML, CSS, JavaScript
 
-## Installation
+## Contributors
 
-To set up and run the Bank Transaction Management System on your local machine, follow these steps:
+- Ravindi Weerasinghe
+- Vishvadini Kurukulasuriya
+- Oshadi Perera
+- Gayani Wickramarathne
+- H.M.M Baqir
 
-1. Clone this repository to your local system using the following command:
-   ```bash
-   git clone https://github.com/your-username/bank-transaction-management-system.git
+
