@@ -1,6 +1,6 @@
 # Bank Transaction Management System
 
-![Bank Transaction Management System](images/WhatsApp%20Image%202023-09-16%20at%2012.04.05.jpg)
+[Bank Transaction Management System](images/WhatsApp%20Image%202023-09-16%20at%2012.04.05.jpg)
 
 ## Table of Contents
 
