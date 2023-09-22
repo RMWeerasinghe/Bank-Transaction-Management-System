@@ -45,6 +45,6 @@ The core functionality includes managing online transactions, handling online lo
 - Oshadi Perera
 - Gayani Wickramarathne
 - H.M.M Baqir
-- Udara Wijesekara
+- Udara Wijesinghe
 
 
